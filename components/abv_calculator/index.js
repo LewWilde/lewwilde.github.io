@@ -8,7 +8,7 @@ export default class AbvCalculator extends Component{
         super(props)
 
         this.maxG = 1.150
-        this.minG = 0.800
+        this.minG = 0.980
 
         this.state = {
             og:1.045,
@@ -41,8 +41,8 @@ export default class AbvCalculator extends Component{
         console.log('blur')
 
         this.setState({
-            'og' : this.state.og.toFixed(3),
-            'fg' : this.state.fg.toFixed(3), 
+            'og' : this.state.og,
+            'fg' : this.state.fg, 
     })
 
     }
@@ -56,7 +56,45 @@ export default class AbvCalculator extends Component{
 
                     <div>ABV: {this.state.abv.toFixed(2)} %</div>
 
+                    <Hydrometer minG={this.minG} maxG={this.maxG} />
+
                 </div>)
+    }
+
+}
+
+class Hydrometer extends Component{
+
+    constructor(props){
+        super(props)
+    }
+
+    render(){
+
+        let lines = [];
+        console.log(this.props.minG)
+        for( let i = this.props.minG * 1000; i <= this.props.maxG * 1000; i += 2 ){
+            
+            if( i % 10  ){
+                lines.push(<div key={i} className="hydrometer-line">-</div>)
+
+            }else{
+                lines.push(<div key={i} className="hydrometer-line">{i}</div>)
+            }
+
+
+        }
+
+        return(
+
+            <div className='hydrometer'>Hydrometer
+            
+            {lines}
+
+            </div>
+
+        )
+
     }
 
 }
