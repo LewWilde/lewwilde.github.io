@@ -1,0 +1,85 @@
+.NavBar {
+  background-color: var(--color-grey-1);
+  padding: 1em;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  .imprint {
+    $mark-size: 0.5em;
+
+    font-size: 1.5em;
+    text-transform: uppercase;
+    font-weight: 650;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 0.5em 2em;
+    position: relative;
+    line-height: 1.5em;
+    transition: background var(--speed);
+
+    &:visited {
+      color: inherit;
+    }
+
+    .markTL,
+    .markTR,
+    .markBL,
+    .markBR {
+      background: var(--text-color);
+      width: $mark-size;
+      height: $mark-size;
+      position: absolute;
+      transition: all var(--speed);
+      clip-path: polygon(0% 0%, 0% 100%, 50% 100%, 50% 50%, 100% 50%, 100% 0%);
+    }
+
+    .markTL {
+      top: 0;
+      left: 0;
+    }
+
+    .markTR {
+      top: 0;
+      right: 0;
+      transform: rotate(90deg);
+    }
+
+    .markBR {
+      bottom: 0;
+      right: 0;
+      transform: rotate(180deg);
+    }
+
+    .markBL {
+      bottom: 0;
+      left: 0;
+      transform: rotate(270deg);
+    }
+
+    &:hover {
+      background-color: var(--color-accent-lighter);
+
+      $moveX: #{$mark-size}; //calc((100% - #{$mark-size} * 2) / 3);
+      $moveY: #{$mark-size}; //calc((100% - #{$mark-size} * 2) / 3);
+
+      .markTL {
+        top: $moveY;
+        left: $moveX;
+      }
+      .markTR {
+        top: $moveY;
+        right: $moveX;
+      }
+      .markBL {
+        bottom: $moveY;
+        left: $moveX;
+      }
+      .markBR {
+        bottom: $moveY;
+        right: $moveX;
+      }
+    }
+  }
+}
