@@ -5,10 +5,11 @@
 .main {
   min-height: calc(100vh - 6em);
   flex: 1;
+  max-width: 55em;
+  margin: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
 }
 
 .footer {
@@ -43,11 +44,6 @@
   line-height: 1.15;
   text-transform: uppercase;
   font-size: 4rem;
-}
-
-.title,
-.description {
-  text-align: center;
 }
 
 .description {

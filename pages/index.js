@@ -1,6 +1,8 @@
 import Head from 'next/head'
 import NavBar from '../components/NavBar'
 import styles from '../styles/Home.module.css'
+import Link from 'next/link'
+import WelcomeTime from '../components/welcomeTime'
 
 export default function Home() {
   return (
@@ -19,9 +21,10 @@ export default function Home() {
 
 
         <main className={styles.main}>
-          <h1 className={styles.title}>
-            Caustic disco, city on fire
-          </h1>
+          <WelcomeTime />
+          <p>I'm a web designer from the wonderful town of Blackburn.
+            I work for Billian I.T Solutions, creating travel websites under the brand
+            <a href="https://designfortravel.co.uk">Design for Travel.</a></p>
         </main>
 
       </div >

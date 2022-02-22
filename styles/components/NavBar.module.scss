@@ -1,6 +1,6 @@
 .NavBar {
   background-color: var(--color-grey-1);
-  padding: 1em;
+  padding: 1.2em;
 
   display: flex;
   flex-direction: row;
@@ -9,7 +9,7 @@
   .imprint {
     $mark-size: 0.5em;
 
-    font-size: 1.5em;
+    font-size: 1.2em;
     text-transform: uppercase;
     font-weight: 650;
     text-decoration: none;
@@ -18,6 +18,7 @@
     position: relative;
     line-height: 1.5em;
     transition: background var(--speed);
+    background: transparent;
 
     &:visited {
       color: inherit;
@@ -32,7 +33,7 @@
       height: $mark-size;
       position: absolute;
       transition: all var(--speed);
-      clip-path: polygon(0% 0%, 0% 100%, 50% 100%, 50% 50%, 100% 50%, 100% 0%);
+      clip-path: polygon(0% 0%, 0% 100%, 33% 100%, 33% 33%, 100% 33%, 100% 0%);
     }
 
     .markTL {
@@ -59,7 +60,13 @@
     }
 
     &:hover {
-      background-color: var(--color-accent-lighter);
+      background: repeating-linear-gradient(
+        45deg,
+        var(--link-background-hover),
+        var(--link-background-hover) 0.5em,
+        transparent 0.5em,
+        transparent 1em /* determines size */
+      );
 
       $moveX: #{$mark-size}; //calc((100% - #{$mark-size} * 2) / 3);
       $moveY: #{$mark-size}; //calc((100% - #{$mark-size} * 2) / 3);
