@@ -22,8 +22,7 @@ export default function Home() {
 
         <main className={styles.main}>
           <WelcomeTime />
-          <p>I'm a web designer from the wonderful town of Blackburn.
-            I work for Billian I.T Solutions, creating travel websites under the brand
+          <p>{"I'm a web designer from the wonderful town of Blackburn. I work for Billian I.T Solutions, creating travel websites under the brand"}
             <a href="https://designfortravel.co.uk">Design for Travel.</a></p>
         </main>
 
