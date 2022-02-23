@@ -6,7 +6,7 @@ export default function WelcomeTime(props) {
 
     const d = new Date();
     const hour = d.getHours()
-    let text = 'Welcome';
+    let text
 
     switch (hour + 1) {
 
@@ -15,7 +15,7 @@ export default function WelcomeTime(props) {
             text = 'Good Morning';
             break;
 
-        case 13: case 15: case 16: case 17:
+        case 13: case 14: case 15: case 16: case 17:
 
             text = 'Good Afternoon';
             break;
@@ -29,6 +29,10 @@ export default function WelcomeTime(props) {
             text = 'Welcome';
             break;
 
+    }
+
+    if (typeof window === "undefined") {
+        return text = 'Hello';
     }
 
     return (
