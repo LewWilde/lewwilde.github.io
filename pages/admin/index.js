@@ -1,4 +1,4 @@
-import dynamic from 'next/dynamic'
+import dynamic from 'next/dynamic';
 
 const config = {
 
@@ -12,6 +12,14 @@ const config = {
     },
     publish_mode: 'editorial_workflow',
     media_folder: '/public/img',
+    media_library: {
+        name: 'cloudinary',
+        output_filename_only: false,
+        config: {
+            cloud_name: 'lewwilde',
+            api_key: '724134168536541',
+        }
+    },
     collections: [
         {
             name: "Posts",
@@ -33,7 +41,14 @@ const config = {
                 { label: "Publish Date", name: "date", widget: "datetime" },
                 {
                     label: "Body", name: "body", widget: "markdown"
+                },
+                {
+                    label: "Featured Image",
+                    name: "thumbnail",
+                    widget: "image",
+                    choose_url: true
                 }
+
             ],
         },
     ],
@@ -42,9 +57,15 @@ const config = {
 
 const NetlifyCMS = dynamic(
     () => {
-        return import('netlify-cms-app').then((CMS) => {
-            CMS.init({ config })
-        })
+
+        return import('netlify-cms-media-library-cloudinary').then( (module) =>{
+            return import('netlify-cms-app').then((CMS) => {
+                CMS.registerMediaLibrary(module.NetlifyCmsMediaLibraryCloudinary)
+                return CMS.init({ config })
+            })
+        }
+        )
+        
     },
     { ssr: false }
 
