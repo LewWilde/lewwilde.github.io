@@ -4,8 +4,9 @@ import styles from './minimap.module.scss'
 
 export default function MiniMap(props) {
 
-    const [mouseX, setMouseX] = useState(0);
-    const [mouseY, setMouseY] = useState(0);
+    
+    const [mouseX, setMouseX] = useState(50);
+    const [mouseY, setMouseY] = useState(50);
     
     useEffect(()=>{
 
@@ -36,10 +37,22 @@ export default function MiniMap(props) {
         setMouseY(ry);
     })
 
+    const clamp = (num, min, max) => Math.max(Math.min(num, Math.max(min, max)), Math.min(min, max));
+    const normalise = (num, min, max) => ((num - min) / (max - min) * 2) - 1;
+
     const updateGyro = useCallback( e => {
 
-        setMouseX(e.gamma);
-        setMouseY(e.beta);
+        const x = (e.gamma / 90) // In degree in the range [-90,90)
+        const y = normalise(clamp((e.beta) / 180, 0, 0.5), 0, 0.5) // In degree in the range [-180,180)
+
+        const u = x * Math.sqrt(1 - y * y / 2);
+        const v = y * Math.sqrt(1 - x * x / 2);
+
+        const rx = (u * 100) / 2 + 50;
+        const ry = (v * 100) / 2 + 50;
+
+        setMouseX(clamp(rx,0,100));
+        setMouseY(ry);
     })
 
 
@@ -51,10 +64,10 @@ export default function MiniMap(props) {
 
     return (
         <>
-        <div className={styles.debug}>
+       {/* <div className={styles.debug}>
            <div>x:{mouseX}</div> 
             <div>y:{mouseY}</div>
-        </div>
+        </div> */} 
 
         <div className={styles.minimap}>
 

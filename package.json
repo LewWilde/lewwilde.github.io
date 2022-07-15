@@ -3,6 +3,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "dev-https": "local-ssl-proxy --key localhost-key.pem --cert localhost.pem --source 443 --target 3000",
     "build": "next build && next export",
     "start": "next start",
     "lint": "next lint",
