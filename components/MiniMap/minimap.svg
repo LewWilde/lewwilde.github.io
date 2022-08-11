@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 26.3.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 160 160" enable-background="new 0 0 160 160" xml:space="preserve">
+<circle id="circle_00000101095924943629561020000010003041617278942613_" display="none" fill="#FFFFFF" stroke="#000000" stroke-width="2" stroke-miterlimit="10" cx="80" cy="80" r="66"/>
+<path id="north" fill="#FFFFFF" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+	M94.54,9.47c-3.59-0.74-7.27-1.2-11.04-1.38L80,4l-3.5,4.08c-3.76,0.18-7.45,0.65-11.04,1.38"/>
+<path id="dots" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+	M105.26,19.02L105.26,19.02 M126.67,33.33L126.67,33.33 M140.98,54.74L140.98,54.74 M140.98,105.26L140.98,105.26 M126.67,126.67
+	L126.67,126.67 M105.26,140.98L105.26,140.98 M54.74,140.98L54.74,140.98 M33.33,126.67L33.33,126.67 M19.02,105.26L19.02,105.26
+	 M19.02,54.74L19.02,54.74 M33.33,33.33L33.33,33.33 M54.74,19.02L54.74,19.02"/>
+<path id="cardinals" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+	M80,14v4 M146,80h-4 M80,146v-4 M14,80h4 M80,14v4 M146,80h-4 M80,146v-4 M14,80h4 M80,14v4 M146,80h-4 M80,146v-4 M14,80h4 M80,14
+	v4 M146,80h-4 M80,146v-4 M14,80h4 M80,14v4"/>
+<polyline id="pawn" fill="none" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+	69,80 76.5,80 80,84 80,84 83.5,80 91,80 "/>
+<g id="horizon_00000035512706102265751890000013660619735610958271_">
+	
+		<path id="down" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-dasharray="3" d="
+		M118.5,113h-16 M118.5,110v3 M41.5,113h16 M41.5,113v-3"/>
+	
+		<path id="center" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-dasharray="3" d="
+		M118.5,80h-16 M118.5,77v3 M41.5,80h16 M41.5,77v3"/>
+	<path id="up" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M41.5,47h16
+		 M41.5,50v-3 M118.5,47h-16 M118.5,50v-3"/>
+</g>
+</svg>
