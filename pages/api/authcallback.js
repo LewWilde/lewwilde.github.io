@@ -14,7 +14,7 @@ export default async (req, res) => {
     // create our token object
     const tokenParams = {
         code,
-        redirect_uri: `https://${host}/api/callback?provider=${provider}`
+        redirect_uri: `https://${host}/api/authcallback?provider=${provider}`
     };
 
     try {
