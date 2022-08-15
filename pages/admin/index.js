@@ -5,11 +5,11 @@ const config = {
     cms_manual_init: true,
     load_config_file: false,
     local_backend: true,
-    base_url: "https://lewwilde.co.uk",
     backend: {
         name: 'github',
         repo: 'LewWilde/lewwilde.github.io',
         branch: 'main',
+        base_url: "https://lewwilde.co.uk",
         auth_endpoint: "api/auth"
     },
     publish_mode: 'editorial_workflow',
