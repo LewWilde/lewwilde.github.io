@@ -5,10 +5,12 @@ const config = {
     cms_manual_init: true,
     load_config_file: false,
     local_backend: true,
+    base_url: "https://lewwilde.co.uk",
     backend: {
         name: 'github',
         repo: 'LewWilde/lewwilde.github.io',
         branch: 'main',
+        auth_endpoint: "api/auth"
     },
     publish_mode: 'editorial_workflow',
     media_folder: '/public/img',
@@ -58,14 +60,14 @@ const config = {
 const NetlifyCMS = dynamic(
     () => {
 
-        return import('netlify-cms-media-library-cloudinary').then( (module) =>{
+        return import('netlify-cms-media-library-cloudinary').then((module) => {
             return import('netlify-cms-app').then((CMS) => {
                 CMS.registerMediaLibrary(module.NetlifyCmsMediaLibraryCloudinary)
                 return CMS.init({ config })
             })
         }
         )
-        
+
     },
     { ssr: false }
 

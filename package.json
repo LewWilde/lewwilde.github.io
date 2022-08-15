@@ -18,7 +18,8 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-markdown": "^8.0.3",
-    "sass": "^1.49.8"
+    "sass": "^1.49.8",
+    "simple-oauth2": "^4.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.18.5",
