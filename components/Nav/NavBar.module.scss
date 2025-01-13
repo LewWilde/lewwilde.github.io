@@ -1,0 +1,90 @@
+.NavBar {
+
+  padding: var(--space-s);
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+
+}
+
+.imprint {
+  $mark-size: 0.5em;
+
+  font-size: var(--step-0);
+  text-transform: uppercase;
+  font-weight: 650;
+  text-decoration: none;
+  cursor: pointer;
+  padding: var(--space-xs) var(--space-m);
+  position: relative;
+  transition: background var(--speed);
+  background: transparent;
+
+  &:visited {
+    color: inherit;
+  }
+
+  .markTL,
+  .markTR,
+  .markBL,
+  .markBR {
+    background: currentColor;
+    width: $mark-size;
+    height: $mark-size;
+    position: absolute;
+    transition: all var(--speed);
+    clip-path: polygon(0% 0%, 0% 100%, 33% 100%, 33% 33%, 100% 33%, 100% 0%);
+  }
+
+  .markTL {
+    top: 0;
+    left: 0;
+  }
+
+  .markTR {
+    top: 0;
+    right: 0;
+    transform: rotate(90deg);
+  }
+
+  .markBR {
+    bottom: 0;
+    right: 0;
+    transform: rotate(180deg);
+  }
+
+  .markBL {
+    bottom: 0;
+    left: 0;
+    transform: rotate(270deg);
+  }
+
+  &:hover {
+    background: transparent;
+
+    $moveX: #{$mark-size};
+    $moveY: #{$mark-size};
+
+    .markTL {
+      top: $moveY;
+      left: $moveX;
+    }
+
+    .markTR {
+      top: $moveY;
+      right: $moveX;
+    }
+
+    .markBL {
+      bottom: $moveY;
+      left: $moveX;
+    }
+
+    .markBR {
+      bottom: $moveY;
+      right: $moveX;
+    }
+  }
+}

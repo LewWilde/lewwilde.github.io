@@ -1,40 +1,17 @@
-@use "sass:math";
-
-:root {
-  $accent: rgb(255, 170, 0);
-  $grey-dark: rgb(26, 26, 26);
-  $grey-light: rgb(247, 247, 245);
-  $steps: 8;
-
-  @for $i from 0 to $steps {
-    --color-grey-#{$i+1}: #{mix(
-        $grey-dark,
-        $grey-light,
-        percentage(math.div($i, ($steps - 1)))
-      )};
-  }
-
-  --text-color: var(--color-grey-7);
-
-  --color-accent: #{$accent};
-  --color-accent-darker: #{darken($accent, 20%)};
-  --color-accent-lighter: #{lighten($accent, 30%)};
-  --link-background: #{rgba($accent, 0.2)};
-  --link-background-hover: #{rgba($accent, 0.4)};
-
-  --font-weight: 500;
-
-  --speed: 0.1s;
-}
+@use './variables' as *;
 
 body {
-  color: var(--text-color);
-  background-color: var(--color-grey-1);
+  color: var(--color-grey-1200);
+  background-color: var(--color-background);
   background-image: url("../public/crossmarker.svg");
   background-size: 20vw;
   background-repeat: repeat;
   font-family: "Saira", sans-serif;
   line-height: 1.5;
+  font-weight: 500;
+  font-size: var(--step-0);
+  //font-variation-settings: "ital" var(--font-italic), "wdth" var(--font-width);
+
 
   @media (min-width: 992px) {
     background-size: 10vw;
@@ -44,39 +21,29 @@ body {
     background-size: 5vw;
   }
 
-  // nice calculator at the bottom of this:
-  //https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/
-  font-size: clamp(1rem, 0.9502rem + 0.2655vw, 1.375rem);
 
-  //font-variation-settings: "ital" var(--font-italic), "wdth" var(--font-width);
-  font-weight: var(--font-weight);
 }
 
 * {
   &::selection {
-    background: var(--color-accent-lighter);
+    background: var(--color-yellow-200);
   }
 }
 
 a {
-  color: var(--color-grey-7);
+  color: var(--color-grey-1200);
+  background: var(--color-yellow-200);
 
   transition: background var(--speed), text-decoration-color var(--speed);
   text-decoration: underline;
   text-decoration-thickness: 0.15em;
-  text-decoration-color: var(--color-accent);
+  text-decoration-color: var(--color-yellow-500);
 
   &:hover,
   &:focus,
   &:active {
-    color: var(--color-grey-8);
-    //text-decoration-color: var(--color-grey-8);
-    background: var(--link-background-hover);
-  }
-}
+    color: var(--color-grey-1200);
 
-p a {
-  background: var(--link-background);
-  padding: 0 0.2em;
-  margin: 0 0.2em;
+    background: var(--color-yellow-300);
+  }
 }
