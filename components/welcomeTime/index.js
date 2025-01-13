@@ -1,6 +1,7 @@
+'use client'
+
 import React, { useEffect, useState } from 'react';
-import Link from 'next/link'
-import styles from '/styles/components/WelcomeTime.module.scss'
+import styles from './WelcomeTime.module.scss'
 
 export default function WelcomeTime(props) {
 
