@@ -29,21 +29,3 @@ body {
     background: var(--color-yellow-200);
   }
 }
-
-a {
-  color: var(--color-grey-1200);
-  background: var(--color-yellow-200);
-
-  transition: background var(--speed), text-decoration-color var(--speed);
-  text-decoration: underline;
-  text-decoration-thickness: 0.15em;
-  text-decoration-color: var(--color-yellow-500);
-
-  &:hover,
-  &:focus,
-  &:active {
-    color: var(--color-grey-1200);
-
-    background: var(--color-yellow-300);
-  }
-}
