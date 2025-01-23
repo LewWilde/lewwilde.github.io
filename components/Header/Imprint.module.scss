@@ -1,0 +1,81 @@
+.imprint {
+    $mark-size: 0.5em;
+    $move-by: 0.35em;
+    font-size: var(--step-0);
+    text-transform: uppercase;
+    font-weight: 650;
+    text-decoration: none;
+    cursor: pointer;
+    padding: var(--space-2xs) var(--space-m);
+    position: relative;
+    transition: background var(--speed);
+    background: transparent;
+
+    &:visited {
+        color: inherit;
+    }
+
+    .mark {
+        background: currentColor;
+        width: $mark-size;
+        height: $mark-size;
+        position: absolute;
+        transition: all var(--speed);
+        clip-path: polygon(0% 0%, 0% 100%, 33% 100%, 33% 33%, 100% 33%, 100% 0%);
+
+        &--tl {
+            top: 0;
+            left: 0;
+        }
+
+        &--tr {
+            top: 0;
+            right: 0;
+            transform: rotate(90deg);
+        }
+
+        &--br {
+            bottom: 0;
+            right: 0;
+            transform: rotate(180deg);
+        }
+
+        &--bl {
+            bottom: 0;
+            left: 0;
+            transform: rotate(270deg);
+        }
+    }
+
+    &:hover {
+        background: transparent;
+        $moveX: #{$move-by};
+        $moveY: #{$move-by};
+
+        .mark {
+            &--tl {
+                top: $moveY;
+                left: $moveX;
+            }
+
+            &--tr {
+                top: $moveY;
+                right: $moveX;
+            }
+
+            &--br {
+                bottom: $moveY;
+                right: $moveX;
+            }
+
+            &--bl {
+                bottom: $moveY;
+                left: $moveX;
+            }
+        }
+    }
+
+    .separator {
+        user-select: none;
+    }
+}
