@@ -1,4 +1,8 @@
+import { Container } from '@/components/Layout/Container';
 import { client } from '../../../sanityclient';
+import { PortableText } from '@portabletext/react';
+import { portableTextComponents } from '@/components/PortableText/portableTextComponents';
+
 
 export async function generateStaticParams() {
 
@@ -10,19 +14,35 @@ export async function generateStaticParams() {
 
 }
 
+const GROQ = `*[_type == "project" && slug.current == $slug][0] {
+    ...,
+    body[] {
+            ...,
+            _type == "image" => {
+                ...,
+                "altText": asset->altText,
+
+            }
+        }
+  }`;
+
 export default async function Project({ params }) {
 
     const { slug } = await params;
 
-    const post = await client.fetch(`*[_type == "project" && slug.current == $slug][0]`, { slug }) ?? {}
+    const post = await client.fetch(GROQ, { slug }) ?? {}
 
     const { title, _updatedAt } = post;
 
+
+
     return (
-        <div>
+        <Container.Main>
             {title}
             {_updatedAt}
-        </div>
+            <PortableText value={post.body} components={portableTextComponents}/>
+            <pre>{JSON.stringify(post, null, 2)}</pre>
+        </Container.Main>
     )
 
 }

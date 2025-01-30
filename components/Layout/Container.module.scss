@@ -1,3 +1,8 @@
 .container {
     margin-inline: max(var(--space-s-l), 50% - var(--container)/2);
 }
+
+.main {
+    max-width: var(--content);
+    margin-inline: auto;
+}
