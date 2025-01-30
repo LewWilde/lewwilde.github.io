@@ -60,9 +60,9 @@
     /* Custom pairs */
     --space-s-l: clamp(1rem, 0.7136rem + 1.2727vw, 2.75rem);
     /* Layout */
-    --container: 80rem;
-    --content: 50rem;
-    --aside: 30rem;
+    --container: calc(var(--step-0) * 80); //80rem - but fluid
+    --content: calc(var(--step-0) * 50);
+    --aside: calc(var(--step-0) * 30);
     //Transition Speed
     --speed: 0.2s;
 }

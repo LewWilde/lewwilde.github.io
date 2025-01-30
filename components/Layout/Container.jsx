@@ -8,11 +8,11 @@ export const Container = ({ children }) => {
 
 }
 
-Container.Main = ({ children }) => {
+const Main = ({ children }) => {
 
     return (<main className={css.main}>
         {children}
     </main>)
 
 }
-
+Container.Main = Main;
