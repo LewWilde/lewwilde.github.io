@@ -18,6 +18,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-markdown": "^8.0.3",
+    "react-syntax-highlighter": "^15.6.1",
     "sass": "^1.49.8",
     "simple-oauth2": "^4.3.0"
   },

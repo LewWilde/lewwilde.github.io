@@ -1,0 +1,52 @@
+.code {
+    display: flex;
+    flex-direction: column;
+
+    &_syntax {
+        position: relative;
+        border: 1px solid var(--color-grey-400);
+
+        >pre {
+            clip-path: polygon(0% 0%,
+                    calc(100% - var(--space-s)) 0%,
+                    100% var(--space-s),
+                    100% 100%,
+                    var(--space-s) 100%,
+                    0% calc(100% - var(--space-s)));
+        }
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: calc(0px - var(--space-s));
+            bottom: calc(0px - var(--space-s));
+            left: calc(0px - var(--space-s));
+            right: calc(0px - var(--space-s));
+            background-size: var(--space-xs) var(--space-xs);
+            background-repeat: repeat;
+            background-image: repeating-linear-gradient(45deg,
+                    var(--color-grey-500) 0,
+                    var(--color-grey-500) 1px,
+                    var(--color-background) 1px,
+                    var(--color-background) 50%);
+            clip-path: polygon(0% 0%,
+                    calc(100% - var(--space-m)) 0%,
+                    100% var(--space-m),
+                    100% 100%,
+                    var(--space-m) 100%,
+                    0% calc(100% - var(--space-m)));
+        }
+    }
+
+    &_file {
+        align-self: flex-start;
+        position: relative;
+        margin-left: var(--space-s);
+        margin-bottom: calc(-1px - var(--space-3xs));
+        background: var(--color-grey-1100);
+        color: var(--color-grey-100);
+        font-size: var(--step--1);
+        padding: var(--space-2xs) var(--space-xs);
+        z-index: 1;
+    }
+}
