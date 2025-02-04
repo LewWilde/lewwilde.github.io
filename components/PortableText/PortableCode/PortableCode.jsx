@@ -1,10 +1,9 @@
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus as theme } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { Pill } from '@/components/Pill/Pill';
 import css from './PortableCode.module.scss';
 
 export const PortableCode = ({ value, isInline }) => {
-
-    console.log(value);
 
     const { language, code, filename } = value;
 
@@ -14,7 +13,7 @@ export const PortableCode = ({ value, isInline }) => {
             ...theme["pre[class*=\"language-\"]"],
             "margin": 0,
             "font-size": "var(--step-0)",
-            "background": "var(--color-grey-1200)"
+            "background": "transparent"
         },
         "code[class*=\"language-\"]": {
             ...theme["code[class*=\"language-\"]"],
@@ -25,16 +24,17 @@ export const PortableCode = ({ value, isInline }) => {
 
     return (
         <div className={css.code}>
-            {filename &&
-                <div className={css.code_file}>{filename}</div>
-            }
-            <div className={css.code_syntax}>
+            <div className={css.code_wrap}>
+
+                <div className={css.code_meta}>
+                    {filename && <span className={css.code_file}>{filename}</span>}
+
+                    <Pill className={css.code_language}>{language}</Pill>
+                </div>
                 <SyntaxHighlighter language={language} style={style}>
                     {code}
                 </SyntaxHighlighter>
             </div>
-
-
         </div>
     )
 

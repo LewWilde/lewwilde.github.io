@@ -10,9 +10,8 @@ body {
   line-height: 1.5;
   font-weight: 500;
   font-size: var(--step-0);
+
   //font-variation-settings: "ital" var(--font-italic), "wdth" var(--font-width);
-
-
   @media (min-width: 992px) {
     background-size: 10vw;
   }
@@ -20,8 +19,12 @@ body {
   @media (min-width: 1800px) {
     background-size: 5vw;
   }
+}
 
-
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 * {
