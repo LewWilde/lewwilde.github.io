@@ -1,0 +1,19 @@
+.section {
+    max-width: var(--content);
+    margin-inline: auto;
+}
+
+.intro {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-m);
+
+    &_heading {
+        margin-block: 0;
+    }
+
+    &_cta {
+        display: flex;
+        gap: 1rem;
+    }
+}
