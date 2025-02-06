@@ -6,7 +6,18 @@ import { portableTextComponents } from '@/components/PortableText/portableTextCo
 import { PortableText } from '@portabletext/react';
 import { FeaturedPosts } from '@/components/FeaturedPosts/FeaturedPosts';
 
-const GROQ = `*[_type == "home-single"][0]`;
+const GROQ = `*[_type == "home-single"][0]{
+                ...,
+                "projects": {
+                    ...projects,
+                    "documents": projects.documents[]->{
+                        _type,
+                        name,
+                        featuredimage,
+                        "slug": '/projects/' + slug.current,
+                    }
+                }
+                }`;
 
 
 export default async function Home() {
@@ -14,6 +25,8 @@ export default async function Home() {
     const post = await client.fetch(GROQ) ?? {}
 
     const { hero_text, projects } = post;
+
+    console.log(post);
 
     return (
         <main>

@@ -20,7 +20,7 @@ const GROQ = `*[_type == "project" && slug.current == $slug][0] {
             ...,
             _type == "image" => {
                 ...,
-                "altText": asset->altText,
+                "alt": asset->altText,
 
             }
         }
@@ -40,7 +40,7 @@ export default async function Project({ params }) {
         <Container.Main>
             {title}
             {_updatedAt}
-            <PortableText value={post.body} components={portableTextComponents}/>
+            <PortableText value={post.body} components={portableTextComponents} />
             <pre>{JSON.stringify(post, null, 2)}</pre>
         </Container.Main>
     )

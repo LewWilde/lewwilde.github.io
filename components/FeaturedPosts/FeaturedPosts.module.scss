@@ -1,6 +1,10 @@
 .section {
-    max-width: var(--content);
+    max-width: var(--container);
     margin-inline: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    gap: var(--space-s);
 }
 
 .intro {
@@ -9,6 +13,7 @@
     gap: var(--space-m);
 
     &_heading {
+        text-transform: uppercase;
         margin-block: 0;
     }
 

@@ -1,6 +1,7 @@
 import css from './FeaturedPosts.module.scss';
 import { Button } from '@/components/Buttons/Button';
 import NextLink from "next/link"
+import { FeaturedCard } from '@/components/FeaturedPosts/FeaturedCard';
 
 export const FeaturedPosts = ({ heading, text, buttonText, buttonHref, documents }) => {
 
@@ -15,7 +16,7 @@ export const FeaturedPosts = ({ heading, text, buttonText, buttonHref, documents
                         <Button href={buttonHref} element={NextLink}>{buttonText ?? 'View All'}</Button>
                     </div>}
             </div>
-            <pre>{JSON.stringify(documents, null, 2)}</pre>
+            {documents?.map(document => <FeaturedCard {...document} />)}
         </section>
 
     )
