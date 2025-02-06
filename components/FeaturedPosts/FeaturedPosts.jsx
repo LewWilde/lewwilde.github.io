@@ -16,7 +16,7 @@ export const FeaturedPosts = ({ heading, text, buttonText, buttonHref, documents
                         <Button href={buttonHref} element={NextLink}>{buttonText ?? 'View All'}</Button>
                     </div>}
             </div>
-            {documents?.map(document => <FeaturedCard {...document} />)}
+            {documents?.map(document => <FeaturedCard key={document.slug} {...document} />)}
         </section>
 
     )
