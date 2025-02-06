@@ -11,10 +11,6 @@
     --mark-color: transparent;
     --hash-color: transparent;
 
-    &:visited {
-        color: inherit;
-    }
-
     .mark {
         background: var(--mark-color);
         width: $mark-size;
