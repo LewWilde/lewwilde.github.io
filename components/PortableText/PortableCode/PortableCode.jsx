@@ -12,12 +12,12 @@ export const PortableCode = ({ value, isInline }) => {
         "pre[class*=\"language-\"]": {
             ...theme["pre[class*=\"language-\"]"],
             "margin": 0,
-            "font-size": "var(--step-0)",
+            "fontSize": "var(--step-0)",
             "background": "transparent"
         },
         "code[class*=\"language-\"]": {
             ...theme["code[class*=\"language-\"]"],
-            "font-size": "var(--step-0)",
+            "fontSize": "var(--step-0)",
         },
 
     }
