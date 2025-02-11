@@ -1,6 +1,71 @@
 .card {
+    line-height: 0;
+    position: relative;
+    overflow: hidden;
+
+    @media(min-width: 80em) {
+        grid-row: span 2;
+    }
+
+    &_image-wrap {
+        &:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            mix-blend-mode: multiply;
+            --hash-color: var(--color-yellow-600);
+            --background: var(--color-yellow-200);
+            background-size: 1rem 1rem;
+            background-repeat: repeat;
+            background-image: repeating-radial-gradient(var(--hash-color),
+                    var(--hash-color) 1px,
+                    var(--background) 1px, var(--background) 100%,
+                );
+            opacity: 0;
+            transition: opacity var(--speed);
+        }
+    }
+
     &_image {
         width: 100%;
         height: auto;
+        transition: filter var(--speed);
+    }
+
+    &_content {
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        line-height: 1.2;
+        color: var(--color-grey-50);
+        opacity: 0;
+        transition: opacity var(--speed);
+    }
+
+    &_content-wrap {
+        font-size: var(--step-0);
+        background: var(--color-grey-1100);
+        padding: var(--space-s);
+    }
+
+    &:hover & {
+        &_content {
+            opacity: 1;
+        }
+
+        &_image-wrap:after {
+            opacity: 1;
+        }
+
+        &_image {
+            filter: grayscale(0.75);
+        }
     }
 }

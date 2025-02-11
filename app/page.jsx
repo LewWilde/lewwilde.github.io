@@ -29,15 +29,12 @@ export default async function Home() {
     console.log(post);
 
     return (
-        <main>
-            <Container>
-                <section className={css.hero}>
-                    <WelcomeTime />
-                    <PortableText value={hero_text} components={portableTextComponents} />
-                </section>
-                <FeaturedPosts {...projects} buttonHref={'/projects'} />
-
-            </Container >
+        <main className={css.main}>
+            <section className={css.hero}>
+                <WelcomeTime />
+                <PortableText value={hero_text} components={portableTextComponents} />
+            </section>
+            <FeaturedPosts {...projects} buttonHref={'/projects'} />
         </main>
     )
 }

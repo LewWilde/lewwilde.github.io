@@ -7,3 +7,7 @@
   flex-direction: column;
   justify-content: center;
 }
+
+.main {
+  margin-inline: var(--space-m-2xl);
+}

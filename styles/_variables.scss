@@ -59,6 +59,7 @@
     --space-2xl-3xl: clamp(4rem, 3.3045rem + 3.0909vw, 8.25rem);
     /* Custom pairs */
     --space-s-l: clamp(1rem, 0.7136rem + 1.2727vw, 2.75rem);
+    --space-m-2xl: clamp(1.5rem, 0.8455rem + 2.9091vw, 5.5rem);
     /* Layout */
     --container: calc(var(--step-0) * 80); //80rem - but fluid
     --content: calc(var(--step-0) * 50);

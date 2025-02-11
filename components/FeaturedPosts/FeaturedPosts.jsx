@@ -9,12 +9,14 @@ export const FeaturedPosts = ({ heading, text, buttonText, buttonHref, documents
 
         <section className={css.section}>
             <div className={css.intro}>
-                <h2 className={css.intro_heading}>{heading}</h2>
-                <div lassName={css.intro_text}>{text}</div>
-                {buttonHref &&
-                    <div className={css.intro_cta}>
-                        <Button href={buttonHref} element={NextLink}>{buttonText ?? 'View All'}</Button>
-                    </div>}
+                <div className={css.intro_wrap}>
+                    <h2 className={css.intro_heading}>{heading}</h2>
+                    <div lassName={css.intro_text}>{text}</div>
+                    {buttonHref &&
+                        <div className={css.intro_cta}>
+                            <Button href={buttonHref} element={NextLink}>{buttonText ?? 'View All'}</Button>
+                        </div>}
+                </div>
             </div>
             {documents?.map(document => <FeaturedCard key={document.slug} {...document} />)}
         </section>
