@@ -1,15 +1,17 @@
 .button {
     position: relative;
-    display: block;
+    display: inline-flex;
     $mark-size: 0.5em;
     $move-by: 0.35em;
     text-align: center;
     padding: var(--space-xs) var(--space-m);
     text-decoration: none;
     font-weight: 600;
+    line-height: 1.5;
     cursor: pointer;
     --mark-color: transparent;
     --hash-color: transparent;
+    font-size: var(--step-0);
 
     .mark {
         background: var(--mark-color);
@@ -120,6 +122,28 @@
         &:hover,
         &:focus-visible {
             --hash-color: var(--color-grey-400);
+        }
+
+        &:active {
+            --mark-color: var(--color-yellow-400);
+        }
+    }
+
+    &--inverted {
+        color: var(--color-grey-100);
+        --mark-color: currentColor;
+        --hash-color: transparent;
+        --background: transparent;
+        background: repeating-linear-gradient(45deg,
+                var(--hash-color) 0,
+                var(--hash-color) 1px,
+                var(--background) 1px,
+                var(--background) 50%);
+        background-size: var(--space-xs) var(--space-xs);
+
+        &:hover,
+        &:focus-visible {
+            --hash-color: var(--color-grey-800);
         }
 
         &:active {

@@ -38,24 +38,38 @@
     &_content {
         position: absolute;
         top: 0;
-        height: 100%;
         width: 100%;
         display: flex;
-        justify-content: flex-end;
         align-items: flex-end;
+        justify-content: space-between;
         line-height: 1.2;
         color: var(--color-grey-50);
         opacity: 0;
         transition: opacity var(--speed);
+        background: var(--color-grey-1100);
+        padding: var(--space-xs);
     }
 
     &_content-wrap {
         font-size: var(--step-0);
-        background: var(--color-grey-1100);
-        padding: var(--space-s);
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2xs);
     }
 
-    &:hover & {
+    &_category {
+        display: flex;
+        font-size: var(--step--2);
+        text-transform: uppercase;
+        gap: var(--space-3xs);
+
+        &_icon {
+            font-size: inherit;
+        }
+    }
+
+    &:hover &,
+    &:focus-visible & {
         &_content {
             opacity: 1;
         }
@@ -67,5 +81,10 @@
         &_image {
             filter: grayscale(0.75);
         }
+    }
+
+    &:focus-visible {
+        outline: 2px solid var(--color-grey-1200);
+        outline-offset: 2px;
     }
 }
