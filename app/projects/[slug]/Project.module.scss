@@ -1,0 +1,16 @@
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-l);
+}
+
+.main {
+    margin-right: auto;
+}
+
+.gallery {
+    &_image {
+        width: 100%;
+        height: auto;
+    }
+}

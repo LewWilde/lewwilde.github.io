@@ -2,7 +2,8 @@ import { Container } from '@/components/Layout/Container';
 import { client } from '../../../sanityclient';
 import { PortableText } from '@portabletext/react';
 import { portableTextComponents } from '@/components/PortableText/portableTextComponents';
-
+import { Image } from '@/components/Image/Image';
+import css from './Project.module.scss'
 
 export async function generateStaticParams() {
 
@@ -32,17 +33,25 @@ export default async function Project({ params }) {
 
     const post = await client.fetch(GROQ, { slug }) ?? {}
 
-    const { title, _updatedAt } = post;
+    const { title, _updatedAt, featuredimage } = post;
 
+    console.log(post)
 
 
     return (
-        <Container.Main>
-            {title}
-            {_updatedAt}
-            <PortableText value={post.body} components={portableTextComponents} />
-            <pre>{JSON.stringify(post, null, 2)}</pre>
-        </Container.Main>
+        <Container size={'full'}>
+            <div className={css.grid}>
+                <div className={css.gallery}>
+                    <Image className={css.gallery_image} maxWidth={1100} {...featuredimage} alt={""} />
+                </div>
+                <Container.Main className={css.main}>
+                    {title}
+                    {_updatedAt}
+                    <PortableText value={post.body} components={portableTextComponents} />
+
+                </Container.Main>
+            </div>
+        </Container>
     )
 
 }

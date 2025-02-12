@@ -26,16 +26,14 @@ export default async function Home() {
 
     const { hero_text, projects } = post;
 
-    console.log(post);
-
     return (
-        <main className={css.main}>
+        <Container size={'full'}>
             <section className={css.hero}>
                 <WelcomeTime />
                 <PortableText value={hero_text} components={portableTextComponents} />
             </section>
             <FeaturedPosts {...projects} buttonHref={'/projects'} />
-        </main>
+        </Container>
     )
 }
 

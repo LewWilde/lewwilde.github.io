@@ -1,8 +1,13 @@
 import css from './Container.module.scss';
 
-export const Container = ({ children }) => {
+export const Container = ({ size = 'container', children }) => {
 
-    return (<div className={css.container}>
+    const classNames = [css.container]
+    if (size === 'full') {
+        classNames.push(css['container--full'])
+    }
+
+    return (<div className={classNames.join(' ')}>
         {children}
     </div>)
 
