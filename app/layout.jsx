@@ -1,4 +1,3 @@
-import 'normalize.css';
 import '../styles/globals.scss'
 import { Header } from '@/components/Header/Header';
 

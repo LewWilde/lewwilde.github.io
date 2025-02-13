@@ -13,9 +13,12 @@ export const Container = ({ size = 'container', children }) => {
 
 }
 
-const Main = ({ children }) => {
+const Main = ({ children, className }) => {
 
-    return (<main className={css.main}>
+    const classNames = [css.main];
+    if (className) { classNames.push(className) };
+
+    return (<main className={classNames.join(' ')}>
         {children}
     </main>)
 

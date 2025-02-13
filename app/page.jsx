@@ -12,7 +12,7 @@ const GROQ = `*[_type == "home-single"][0]{
                     ...projects,
                     "documents": projects.documents[]->{
                         _type,
-                        name,
+                        title,
                         featuredimage,
                         "slug": '/projects/' + slug.current,
                     }

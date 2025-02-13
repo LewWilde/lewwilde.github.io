@@ -3,7 +3,10 @@ import { client } from '../../../sanityclient';
 import { PortableText } from '@portabletext/react';
 import { portableTextComponents } from '@/components/PortableText/portableTextComponents';
 import { Image } from '@/components/Image/Image';
+import { PostMeta } from '@/components/PostMeta/PostMeta';
 import css from './Project.module.scss'
+import { Heading } from '@/components/Typography/Heading';
+import { Pill } from '@/components/Pill/Pill'
 
 export async function generateStaticParams() {
 
@@ -24,7 +27,8 @@ const GROQ = `*[_type == "project" && slug.current == $slug][0] {
                 "alt": asset->altText,
 
             }
-        }
+        },
+    "tags": tags[]->{title}
   }`;
 
 export default async function Project({ params }) {
@@ -33,7 +37,7 @@ export default async function Project({ params }) {
 
     const post = await client.fetch(GROQ, { slug }) ?? {}
 
-    const { title, _updatedAt, featuredimage } = post;
+    const { title, year, client: clientName, tags, gallery, featuredimage } = post;
 
     console.log(post)
 
@@ -45,8 +49,18 @@ export default async function Project({ params }) {
                     <Image className={css.gallery_image} maxWidth={1100} {...featuredimage} alt={""} />
                 </div>
                 <Container.Main className={css.main}>
-                    {title}
-                    {_updatedAt}
+
+                    <Heading level={1}>{title}</Heading>
+                    <div>
+                        <PostMeta>
+                            {clientName && <PostMeta.Block title={'Client'}>{clientName}</PostMeta.Block>}
+                            {year && <PostMeta.Block title={'Year'}>{year}</PostMeta.Block>}
+                            {tags.length > 1 && <PostMeta.Block title={'Services'}>
+                                <div className={css.tags}>{tags.map(({ title }) => <Pill key={title}>{title}</Pill>)
+                                }</div>
+                            </PostMeta.Block>}
+                        </PostMeta>
+                    </div>
                     <PortableText value={post.body} components={portableTextComponents} />
 
                 </Container.Main>

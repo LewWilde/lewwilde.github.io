@@ -1,7 +1,8 @@
 'use client'
 
 import { useMemo } from 'react';
-import styles from './WelcomeTime.module.scss'
+import { Heading } from '../Typography/Heading';
+
 
 export default function WelcomeTime() {
 
@@ -36,7 +37,7 @@ export default function WelcomeTime() {
 
     return (
 
-        <h1 className={styles.heading}>{text}</h1>
+        <Heading level={1}>{text}</Heading>
 
     )
 

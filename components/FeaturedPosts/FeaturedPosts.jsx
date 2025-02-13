@@ -2,6 +2,7 @@ import css from './FeaturedPosts.module.scss';
 import { Button } from '@/components/Buttons/Button';
 import NextLink from "next/link"
 import { FeaturedCard } from '@/components/FeaturedPosts/FeaturedCard';
+import { Heading } from '../Typography/Heading';
 
 export const FeaturedPosts = ({ heading, text, buttonText, buttonHref, documents }) => {
 
@@ -10,7 +11,7 @@ export const FeaturedPosts = ({ heading, text, buttonText, buttonHref, documents
         <section className={css.section}>
             <div className={css.intro}>
                 <div className={css.intro_wrap}>
-                    <h2 className={css.intro_heading}>{heading}</h2>
+                    <Heading level={2}>{heading}</Heading>
                     <div className={css.intro_text}>{text}</div>
                     {buttonHref &&
                         <div className={css.intro_cta}>
