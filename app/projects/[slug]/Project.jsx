@@ -55,7 +55,7 @@ export default async function Project({ params }) {
                         <PostMeta>
                             {clientName && <PostMeta.Block title={'Client'}>{clientName}</PostMeta.Block>}
                             {year && <PostMeta.Block title={'Year'}>{year}</PostMeta.Block>}
-                            {tags.length > 1 && <PostMeta.Block title={'Services'}>
+                            {tags?.length > 1 && <PostMeta.Block title={'Services'}>
                                 <div className={css.tags}>{tags.map(({ title }) => <Pill key={title}>{title}</Pill>)
                                 }</div>
                             </PostMeta.Block>}
