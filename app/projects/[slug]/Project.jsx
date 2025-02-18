@@ -7,6 +7,7 @@ import { PostMeta } from '@/components/PostMeta/PostMeta';
 import css from './Project.module.scss'
 import { Heading } from '@/components/Typography/Heading';
 import { Pill } from '@/components/Pill/Pill'
+import { StickyAside } from '@/components/Layout/StickyAside';
 
 export async function generateStaticParams() {
 
@@ -39,33 +40,42 @@ export default async function Project({ params }) {
 
     const { title, year, client: clientName, tags, gallery, featuredimage } = post;
 
-    console.log(post)
-
-
     return (
         <Container size={'full'}>
             <div className={css.grid}>
                 <div className={css.gallery}>
                     <Image className={css.gallery_image} maxWidth={1100} {...featuredimage} alt={""} />
+                    <Image className={css.gallery_image} maxWidth={1100} {...featuredimage} alt={""} />
+                    <Image className={css.gallery_image} maxWidth={1100} {...featuredimage} alt={""} />
+                    <Image className={css.gallery_image} maxWidth={1100} {...featuredimage} alt={""} />
+                    <Image className={css.gallery_image} maxWidth={1100} {...featuredimage} alt={""} />
+                    <Image className={css.gallery_image} maxWidth={1100} {...featuredimage} alt={""} />
+                    <Image className={css.gallery_image} maxWidth={1100} {...featuredimage} alt={""} />
+                    <Image className={css.gallery_image} maxWidth={1100} {...featuredimage} alt={""} />
+                    <Image className={css.gallery_image} maxWidth={1100} {...featuredimage} alt={""} />
+                    <Image className={css.gallery_image} maxWidth={1100} {...featuredimage} alt={""} />
+                    <Image className={css.gallery_image} maxWidth={1100} {...featuredimage} alt={""} />
                 </div>
-                <Container.Main className={css.main}>
+                <StickyAside>
+                    <Container.Main className={css.main}>
+                        <Heading level={1}>{title}</Heading>
+                        <div>
+                            <PostMeta>
+                                {clientName && <PostMeta.Block title={'Client'}>{clientName}</PostMeta.Block>}
+                                {year && <PostMeta.Block title={'Year'}>{year}</PostMeta.Block>}
+                                {tags?.length > 1 && <PostMeta.Block title={'Services'}>
+                                    <div className={css.tags}>{tags.map(({ title }) => <Pill key={title}>{title}</Pill>)
+                                    }</div>
+                                </PostMeta.Block>}
+                            </PostMeta>
+                        </div>
+                        <PortableText value={post.body} components={portableTextComponents} />
 
-                    <Heading level={1}>{title}</Heading>
-                    <div>
-                        <PostMeta>
-                            {clientName && <PostMeta.Block title={'Client'}>{clientName}</PostMeta.Block>}
-                            {year && <PostMeta.Block title={'Year'}>{year}</PostMeta.Block>}
-                            {tags?.length > 1 && <PostMeta.Block title={'Services'}>
-                                <div className={css.tags}>{tags.map(({ title }) => <Pill key={title}>{title}</Pill>)
-                                }</div>
-                            </PostMeta.Block>}
-                        </PostMeta>
-                    </div>
-                    <PortableText value={post.body} components={portableTextComponents} />
+                    </Container.Main>
+                </StickyAside>
 
-                </Container.Main>
             </div>
-        </Container>
+        </Container >
     )
 
 }

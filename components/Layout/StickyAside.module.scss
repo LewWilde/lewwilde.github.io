@@ -1,0 +1,9 @@
+.sticky-wrap {}
+
+.sticky {
+    position: sticky;
+
+    &_children {
+        display: flex;
+    }
+}
