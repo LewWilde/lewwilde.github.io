@@ -36,7 +36,3 @@ export default async function Home() {
         </Container>
     )
 }
-
-export const metadata = {
-    title: 'Lew Wilde',
-}

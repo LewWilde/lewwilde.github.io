@@ -32,6 +32,19 @@ const GROQ = `*[_type == "project" && slug.current == $slug][0] {
     "tags": tags[]->{title}
   }`;
 
+export async function generateMetadata({ params }) {
+
+    const { slug } = await params;
+
+    const post = await client.fetch(GROQ, { slug }) ?? {}
+
+    const { title } = post;
+
+    return {
+        title: title,
+    }
+}
+
 export default async function Project({ params }) {
 
     const { slug } = await params;

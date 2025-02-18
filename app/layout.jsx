@@ -17,7 +17,10 @@ export default function RootLayout({ children }) {
     )
 }
 
-export const metaData = {
-    title: 'Lew Wilde',
+export const metadata = {
     description: 'A web developer from Blackburn, UK',
+    title: {
+        template: '%s | Lew Wilde',
+        default: 'Lew Wilde', // a default is required when creating a template
+    },
 }

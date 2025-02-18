@@ -4,3 +4,7 @@ export default async function Page({ params }) {
         <div>Projects archive page</div>
     )
 }
+
+export const metadata = {
+    title: 'Projects',
+}
