@@ -1,10 +1,14 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 
 export const useWindowSize = () => {
-    const [width, setWidth] = useState(window.innerWidth)
+    const [width, setWidth] = useState(0)
     const isDesktop = width / 16 >= 70;
     const isMobile = width / 16 >= 48 && !isDesktop;
     const isTablet = width / 16 < 48;
+
+    useLayoutEffect(() => {
+        setWidth(window.innerWidth)
+    }, [])
 
     useEffect(() => {
         let timer;

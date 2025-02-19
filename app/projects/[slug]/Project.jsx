@@ -56,7 +56,7 @@ export default async function Project({ params }) {
     return (
         <Container size={'full'}>
             <div className={css.grid}>
-                <ProjectGallery images={[...gallery, ...gallery, ...gallery, ...gallery]} />
+                <ProjectGallery images={gallery} />
                 <StickyAside>
                     <Container.Main className={css.main}>
                         <Heading level={1}>{title}</Heading>

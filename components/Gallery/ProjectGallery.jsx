@@ -9,7 +9,7 @@ export const ProjectGallery = ({ images }) => {
 
     const { isDesktop } = useWindowSize();
 
-    if (!images.length) {
+    if (!images?.length) {
         return;
     }
 
