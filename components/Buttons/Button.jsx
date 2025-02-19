@@ -2,15 +2,18 @@ import css from "./Button.module.scss";
 
 export const Button = (props) => {
 
-    const { children, element: Element = 'button', variant = 'fill', ...otherProps } = props;
-    const classNames = [css.button, css[`button--${variant}`]];
-
+    const { children, element: Element = 'button', variant = 'fill', size = 'default', showMarks = true, ...otherProps } = props;
+    const classNames = [css.button, css[`button--${variant}`], css[`button--size-${size}`]];
 
     return (<Element className={classNames.join(' ')} {...otherProps} >
-        <div className={`${css.mark} ${css['mark--tl']}`}></div>
-        <div className={`${css.mark} ${css['mark--tr']}`}></div>
-        <div className={`${css.mark} ${css['mark--br']}`}></div>
-        <div className={`${css.mark} ${css['mark--bl']}`}></div>
+        {showMarks &&
+            <>
+                <div className={`${css.mark} ${css['mark--tl']}`}></div>
+                <div className={`${css.mark} ${css['mark--tr']}`}></div>
+                <div className={`${css.mark} ${css['mark--br']}`}></div>
+                <div className={`${css.mark} ${css['mark--bl']}`}></div>
+            </>
+        }
         {children}</Element>)
 
 }

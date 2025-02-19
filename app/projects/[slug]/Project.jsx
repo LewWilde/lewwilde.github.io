@@ -2,12 +2,12 @@ import { Container } from '@/components/Layout/Container';
 import { client } from '../../../sanityclient';
 import { PortableText } from '@portabletext/react';
 import { portableTextComponents } from '@/components/PortableText/portableTextComponents';
-import { Image } from '@/components/Image/Image';
 import { PostMeta } from '@/components/PostMeta/PostMeta';
 import css from './Project.module.scss'
 import { Heading } from '@/components/Typography/Heading';
 import { Pill } from '@/components/Pill/Pill'
 import { StickyAside } from '@/components/Layout/StickyAside';
+import { ProjectGallery } from '@/components/Gallery/ProjectGallery';
 
 export async function generateStaticParams() {
 
@@ -56,19 +56,7 @@ export default async function Project({ params }) {
     return (
         <Container size={'full'}>
             <div className={css.grid}>
-                <div className={css.gallery}>
-                    <Image className={css.gallery_image} maxWidth={1100} {...featuredimage} alt={""} />
-                    <Image className={css.gallery_image} maxWidth={1100} {...featuredimage} alt={""} />
-                    <Image className={css.gallery_image} maxWidth={1100} {...featuredimage} alt={""} />
-                    <Image className={css.gallery_image} maxWidth={1100} {...featuredimage} alt={""} />
-                    <Image className={css.gallery_image} maxWidth={1100} {...featuredimage} alt={""} />
-                    <Image className={css.gallery_image} maxWidth={1100} {...featuredimage} alt={""} />
-                    <Image className={css.gallery_image} maxWidth={1100} {...featuredimage} alt={""} />
-                    <Image className={css.gallery_image} maxWidth={1100} {...featuredimage} alt={""} />
-                    <Image className={css.gallery_image} maxWidth={1100} {...featuredimage} alt={""} />
-                    <Image className={css.gallery_image} maxWidth={1100} {...featuredimage} alt={""} />
-                    <Image className={css.gallery_image} maxWidth={1100} {...featuredimage} alt={""} />
-                </div>
+                <ProjectGallery images={[...gallery, ...gallery, ...gallery, ...gallery]} />
                 <StickyAside>
                     <Container.Main className={css.main}>
                         <Heading level={1}>{title}</Heading>

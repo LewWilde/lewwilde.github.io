@@ -1,0 +1,26 @@
+.carousel {
+    margin-inline: calc(0px - var(--space-m-2xl));
+    padding: var(--space-m-2xl);
+    overflow: hidden;
+
+    &_image {
+        width: 100%;
+        height: auto;
+    }
+
+    &_swiper {
+        overflow: visible;
+    }
+
+    &_slide {
+        line-height: 0;
+    }
+}
+
+.controls {
+    margin-top: var(--space-xs);
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    gap: var(--space-xs);
+}
