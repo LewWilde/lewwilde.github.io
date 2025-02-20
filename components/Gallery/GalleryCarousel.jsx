@@ -10,7 +10,7 @@ import { Button } from '@/components/Buttons/Button';
 import css from './GalleryCarousel.module.scss';
 import { CaretLeft, CaretRight } from '@phosphor-icons/react';
 
-export const GalleryCarousel = ({ images }) => {
+export const GalleryCarousel = ({ images, loading = 'lazy' }) => {
 
 
     const [limits, setLimits] = useState({ isEnd: false, isBeginning: true });
@@ -25,7 +25,7 @@ export const GalleryCarousel = ({ images }) => {
             >
                 {images.map((image, i) =>
                     <SwiperSlide key={image._key + i} className={css.carousel_slide}>
-                        <Image className={css.carousel_image} maxWidth={1100} {...image} alt={""} />
+                        <Image loading={(i === 0 && loading) ? loading : 'lazy'} className={css.carousel_image} maxWidth={1100} {...image} alt={""} />
                     </SwiperSlide>
                 )}
                 <GalleryControls limits={limits} />

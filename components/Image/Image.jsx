@@ -4,7 +4,7 @@ import NextImage from 'next/image';
 
 const urlBuilder = ImageUrlBuilder(client)
 
-export const Image = ({ asset, maxWidth = 1100, ...otherProps }) => {
+export const Image = ({ asset, maxWidth = 1100, loading = "lazy", ...otherProps }) => {
 
     const [, assetId, dimensionString, extension] = asset._ref.split('-')
     const [srcWidth, srcHeight] = (dimensionString || '').split('x').map(Number)
@@ -16,7 +16,7 @@ export const Image = ({ asset, maxWidth = 1100, ...otherProps }) => {
     const image = urlBuilder.image(asset).width(maxWidth).url()
 
     return (
-        <NextImage src={image} loading="lazy" width={maxWidth} height={maxHeight} {...otherProps}></NextImage>
+        <NextImage src={image} loading={loading} width={maxWidth} height={maxHeight} {...otherProps}></NextImage>
     )
 
 }
