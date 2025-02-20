@@ -36,3 +36,9 @@
         height: auto;
     }
 }
+
+.header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-s);
+}

@@ -8,6 +8,7 @@ import { Heading } from '@/components/Typography/Heading';
 import { Pill } from '@/components/Pill/Pill'
 import { StickyAside } from '@/components/Layout/StickyAside';
 import { ProjectGallery } from '@/components/Gallery/ProjectGallery';
+import { Breadcrumbs, Crumb } from '@/components/Breadcrumbs/Breadcrumbs';
 
 export async function generateStaticParams() {
 
@@ -59,8 +60,12 @@ export default async function Project({ params }) {
                 <ProjectGallery images={gallery} />
                 <StickyAside>
                     <Container.Main className={css.main}>
-                        <Heading level={1}>{title}</Heading>
-
+                        <div className={css.header}>
+                            <Breadcrumbs>
+                                <Crumb href={'/projects'}>Projects</Crumb>
+                            </Breadcrumbs>
+                            <Heading level={1}>{title}</Heading>
+                        </div>
                         <PostMeta>
                             {clientName && <PostMeta.Block title={'Client'}>{clientName}</PostMeta.Block>}
                             {year && <PostMeta.Block title={'Year'}>{year}</PostMeta.Block>}

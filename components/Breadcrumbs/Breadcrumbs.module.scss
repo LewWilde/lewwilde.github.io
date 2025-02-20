@@ -1,0 +1,34 @@
+.breadcrumbs {
+    display: flex;
+    font-size: var(--step--1);
+    text-transform: uppercase;
+    gap: var(--space-3xs);
+    line-height: 1.2;
+    align-items: center;
+    font-weight: 600;
+    color: inherit;
+
+    &_icon {
+        font-size: inherit;
+    }
+
+    &_sep {}
+
+    &_crumb {
+        &[href] {
+            text-decoration: none;
+            color: inherit;
+
+            &:hover,
+            &:focus,
+            &:active {
+                text-decoration: underline;
+                text-decoration-color: currentColor;
+            }
+        }
+    }
+
+    &--small {
+        font-size: var(--step--2);
+    }
+}
