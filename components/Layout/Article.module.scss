@@ -1,0 +1,38 @@
+.article {
+    margin-block: var(--space-m);
+    margin-right: auto;
+    margin-left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-l);
+    min-width: 0;
+    max-width: var(--content);
+
+    @media(min-width: 70rem) {
+        margin-block: var(--space-3xl);
+    }
+
+    &_content {
+        --block-space: var(--space-s);
+
+        >*+ {
+            * {
+                margin-top: var(--block-space)
+            }
+
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                --block-space: 1em;
+            }
+        }
+
+        >div {
+            --block-space: var(--space-xl);
+            margin-bottom: var(--block-space);
+        }
+    }
+}

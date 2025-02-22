@@ -9,6 +9,7 @@ import { Pill } from '@/components/Pill/Pill'
 import { StickyAside } from '@/components/Layout/StickyAside';
 import { ProjectGallery } from '@/components/Gallery/ProjectGallery';
 import { Breadcrumbs, Crumb } from '@/components/Breadcrumbs/Breadcrumbs';
+import { Article } from '@/components/Layout/Article';
 
 export async function generateStaticParams() {
 
@@ -59,25 +60,27 @@ export default async function Project({ params }) {
             <div className={css.grid}>
                 <ProjectGallery images={gallery} />
                 <StickyAside>
-                    <Container.Main className={css.main}>
+                    <Article>
                         <div className={css.header}>
                             <Breadcrumbs>
                                 <Crumb href={'/projects'}>Projects</Crumb>
                             </Breadcrumbs>
                             <Heading level={1}>{title}</Heading>
                         </div>
-                        <PostMeta>
-                            {clientName && <PostMeta.Block title={'Client'}>{clientName}</PostMeta.Block>}
-                            {year && <PostMeta.Block title={'Year'}>{year}</PostMeta.Block>}
-                            {tags?.length > 1 && <PostMeta.Block title={'Services'}>
-                                <div className={css.tags}>{tags.map(({ title }) => <Pill key={title}>{title}</Pill>)
-                                }</div>
-                            </PostMeta.Block>}
-                        </PostMeta>
 
-                        <PortableText value={post.body} components={portableTextComponents} />
 
-                    </Container.Main>
+                        <Article.Content>
+                            <PostMeta>
+                                {clientName && <PostMeta.Block title={'Client'}>{clientName}</PostMeta.Block>}
+                                {year && <PostMeta.Block title={'Year'}>{year}</PostMeta.Block>}
+                                {tags?.length > 1 && <PostMeta.Block title={'Services'}>
+                                    <div className={css.tags}>{tags.map(({ title }) => <Pill key={title}>{title}</Pill>)
+                                    }</div>
+                                </PostMeta.Block>}
+                            </PostMeta>
+                            <PortableText value={post.body} components={portableTextComponents} />
+                        </Article.Content>
+                    </Article>
                 </StickyAside>
 
             </div>
