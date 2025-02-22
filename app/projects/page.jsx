@@ -30,9 +30,9 @@ export default async function Page({ searchParams }) {
             {posts?.length > 0 &&
                 posts.map(post => <div>{post?.title}</div>)
             }
-            <Button disabled={isFirstPage} element={!isFirstPage ? Link : 'button'} href={!isFirstPage && `/projects?page=${page - 1}`}>Back</Button>
+            <Button disabled={isFirstPage} element={!isFirstPage ? Link : 'button'} href={!isFirstPage ? `/projects?page=${page - 1}` : undefined}>Back</Button>
             {page} of {pageCount}
-            <Button disabled={isLastPage} element={!isLastPage ? Link : 'button'} href={!isLastPage && `/projects?page=${page + 1}`}>Next</Button>
+            <Button disabled={isLastPage} element={!isLastPage ? Link : 'button'} href={!isLastPage ? `/projects?page=${page + 1}` : undefined}>Next</Button>
         </Container>
     )
 }
