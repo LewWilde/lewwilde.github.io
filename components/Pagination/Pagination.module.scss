@@ -1,0 +1,15 @@
+.pagination {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: var(--space-xs);
+}
+
+.pagenumbers {
+    font-size: var(--step--1);
+
+    &_current {
+        font-weight: 600;
+    }
+}

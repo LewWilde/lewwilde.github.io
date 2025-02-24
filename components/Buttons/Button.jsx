@@ -2,8 +2,11 @@ import css from "./Button.module.scss";
 
 export const Button = (props) => {
 
-    const { children, element: Element = 'button', variant = 'fill', size = 'default', showMarks = true, ...otherProps } = props;
+    const { children, className, element: Element = 'button', variant = 'fill', size = 'default', showMarks = true, ...otherProps } = props;
     const classNames = [css.button, css[`button--${variant}`], css[`button--size-${size}`]];
+    if (className) {
+        classNames.push(className);
+    }
 
     return (<Element className={classNames.join(' ')} {...otherProps} >
         {showMarks &&
