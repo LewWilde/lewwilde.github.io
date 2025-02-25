@@ -5,8 +5,11 @@ import Link from "next/link";
 import { Card } from "@/components/Card/Card";
 
 import { Pagination } from "@/components/Pagination/Pagination"
+import { CardsGrid } from "@/components/Card/CardsGrid";
 
-const postsPerPage = 2;
+import css from './page.module.scss';
+
+const postsPerPage = 18;
 const postCountGROQ = `count(* [_type == "project"])`;
 
 export default async function Page({ searchParams }) {
@@ -28,23 +31,29 @@ export default async function Page({ searchParams }) {
 
     return (
         <Container>
-            <Container.Main>
-                <Heading level='1'>
-                    Projects
-                </Heading>
+            <div className={css.page_content}>
+                <div className={css.page_header}>
+                    <Heading level='1'>
+                        Projects
+                    </Heading>
 
+                </div>
                 {posts?.length > 0 &&
-                    posts.map(post => <Card key={post._id} {...post} path={'projects'} />)
+                    <CardsGrid>
+                        {posts.map(post => <Card key={post._id} {...post} path={'projects'} />)}
+                    </CardsGrid>
                 }
 
                 {pageCount > 0 &&
-                    <Pagination>
-                        <Pagination.Prev disabled={isFirstPage} element={!isFirstPage ? Link : 'button'} href={!isFirstPage ? `/projects?page=${page - 1}` : undefined} />
-                        <Pagination.PageNumbers page={page} pageCount={pageCount} />
-                        <Pagination.Next disabled={isLastPage} element={!isLastPage ? Link : 'button'} href={!isLastPage ? `/projects?page=${page + 1}` : undefined} />
-                    </Pagination>
+                    <div className={css.page_pagination}>
+                        <Pagination>
+                            <Pagination.Prev disabled={isFirstPage} element={!isFirstPage ? Link : 'button'} href={!isFirstPage ? `/projects?page=${page - 1}` : undefined} />
+                            <Pagination.PageNumbers page={page} pageCount={pageCount} />
+                            <Pagination.Next disabled={isLastPage} element={!isLastPage ? Link : 'button'} href={!isLastPage ? `/projects?page=${page + 1}` : undefined} />
+                        </Pagination>
+                    </div>
                 }
-            </Container.Main>
+            </div>
         </Container>
     )
 }
