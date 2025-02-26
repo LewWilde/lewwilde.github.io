@@ -5,7 +5,7 @@ export const Footer = () => {
 
     const getHash = () => {
         const { VERCEL_URL } = process.env;
-        if (!VERCEL_URL) { return }
+        if (!VERCEL_URL) { return '---------' }
 
         const hash = VERCEL_URL.split('-')[1];
 
@@ -15,7 +15,7 @@ export const Footer = () => {
     return (
         <div className={css.footer}>
             <Container>
-                {getHash()}
+                <div className={css.footer_build}>Build:{getHash()}</div>
             </Container>
         </div>
     )

@@ -1,3 +1,10 @@
 .footer {
     padding-block: var(--space-m);
+
+    &_build {
+        text-transform: uppercase;
+        font-weight: 500;
+        font-size: var(--step--2);
+        color: var(--color-grey-600);
+    }
 }
