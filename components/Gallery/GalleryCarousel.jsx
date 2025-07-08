@@ -4,13 +4,14 @@ import { useState } from 'react';
 import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import { Image } from '@/components/Image/Image';
+import { Video } from '@/components/Video/Video';
 import 'swiper/css';
 import 'swiper/css/navigation'
 import { Button } from '@/components/Buttons/Button';
 import css from './GalleryCarousel.module.scss';
 import { CaretLeft, CaretRight } from '@phosphor-icons/react';
 
-export const GalleryCarousel = ({ images, loading = 'lazy' }) => {
+export const GalleryCarousel = ({ media, loading = 'lazy' }) => {
 
 
     const [limits, setLimits] = useState({ isEnd: false, isBeginning: true });
@@ -23,9 +24,10 @@ export const GalleryCarousel = ({ images, loading = 'lazy' }) => {
                 spaceBetween={8}
                 onSlideChange={(swiper) => { setLimits({ isEnd: swiper.isEnd, isBeginning: swiper.isBeginning }) }}
             >
-                {images.map((image, i) =>
-                    <SwiperSlide key={image._key + i} className={css.carousel_slide}>
-                        <Image loading={(i === 0 && loading) ? loading : 'lazy'} className={css.carousel_image} maxWidth={1100} {...image} alt={""} />
+                {media.map((item, i) =>
+                    <SwiperSlide key={item._key + i} className={css.carousel_slide}>
+                        {item._type === 'image' && <Image loading={(i === 0 && loading) ? loading : 'lazy'} className={css.carousel_image} maxWidth={1100} {...item} alt={""} />}
+                        {item._type === 'video' && <Video className={css.carousel_image} key={item._key} {...item} />}
                     </SwiperSlide>
                 )}
                 <GalleryControls limits={limits} />

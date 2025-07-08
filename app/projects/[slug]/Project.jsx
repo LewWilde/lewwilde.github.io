@@ -29,8 +29,20 @@ const GROQ = `*[_type == "project" && slug.current == $slug][0] {
                 ...,
                 "alt": asset->altText,
 
-            }
+            },
         },
+    gallery[] {
+        ...,
+        _type == "image" => {
+            ...,
+            "alt": asset->altText,
+        },
+        _type == "video" => {
+            ...,
+            "src": src.asset->url,
+            
+        },
+    },
     "tags": tags[]->{title}
   }`;
 
@@ -55,10 +67,12 @@ export default async function Project({ params }) {
 
     const { title, year, client: clientName, tags, gallery, featuredimage } = post;
 
+    console.log(gallery)
+
     return (
         <Container size={'full'}>
             <div className={css.grid}>
-                <ProjectGallery images={gallery} />
+                <ProjectGallery media={gallery} />
                 <StickyAside>
                     <Article>
                         <div className={css.header}>
