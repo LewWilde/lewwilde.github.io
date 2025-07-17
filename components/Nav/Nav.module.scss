@@ -1,0 +1,55 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: grid;
+    overflow-y: auto;
+    --overlay-open-bg: #f7f7f580;
+    --overlay-closed-bg: #f7f7f500;
+
+    &[data-state="open"] {
+        animation: blur var(--speed) forwards;
+    }
+
+    &[data-state="closed"] {
+        animation: focus var(--speed) ease-in forwards;
+    }
+}
+
+.content {
+    height: 100%;
+}
+
+.head {
+    padding-block: var(--space-s);
+    display: flex;
+    justify-content: flex-end;
+}
+
+.main {}
+
+@keyframes blur {
+    0% {
+        background-color: var(--overlay-closed-bg);
+        backdrop-filter: blur(0rem);
+    }
+
+    to {
+        background-color: var(--overlay-open-bg);
+        backdrop-filter: blur(0.5rem);
+    }
+}
+
+@keyframes focus {
+    from {
+        background-color: var(--overlay-open-bg);
+        backdrop-filter: blur(0.5rem);
+    }
+
+    to {
+        background-color: var(--overlay-closed-bg);
+        backdrop-filter: blur(0rem);
+    }
+}
