@@ -6,8 +6,9 @@ import css from './Nav.module.scss'
 import { Button } from "../Buttons/Button"
 import { X } from "@phosphor-icons/react/dist/ssr"
 import { Container } from "../Layout/Container"
-import Link from "@/components/Link/Link";
 import { useState } from "react";
+import { NavLink } from "@/components/Nav/NavLink";
+import { resolveLink } from "../../utils/resolveLink";
 
 export const NavClient = ({ items }) => {
 
@@ -28,10 +29,11 @@ export const NavClient = ({ items }) => {
                             </div>
                             <div className={css.main}>
                                 {items.map(item =>
-                                    <Link key={item._key}
-                                        href={item.internal ? item.internal : item.external}
+                                    <NavLink key={item._key}
+                                        href={item.internal ? resolveLink(item.internal) : item.external}
                                         isExternal={!!item.external}
-                                    >{item.text}</Link>
+                                        onNavigate={() => { setOpen(false) }}
+                                    >{item.text}</NavLink>
                                 )}
                             </div>
                         </Container>
