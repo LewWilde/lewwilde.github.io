@@ -3,15 +3,19 @@ import { Imprint } from "./Imprint";
 import css from "./Header.module.scss";
 import { Nav } from "@/components/Nav/Nav";
 
-export const Header = () => {
+export const Header = ({ navButton = <Nav /> }) => {
 
     return (
-        <header>
+        <header className={css.header}>
             <Container>
                 <div className={css.header_bar}>
-                    <Imprint />
+                    <div className={css.header_imprint}>
+                        <Imprint />
+                    </div>
+                    <div className={css.header_nav}>
+                        {navButton}
+                    </div>
                 </div>
-                <Nav />
             </Container>
         </header>)
 

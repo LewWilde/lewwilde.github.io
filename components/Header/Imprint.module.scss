@@ -10,6 +10,7 @@
     position: relative;
     transition: background var(--speed);
     background: transparent;
+    display: block;
 
     &:visited {
         color: inherit;

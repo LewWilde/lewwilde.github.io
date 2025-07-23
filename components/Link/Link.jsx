@@ -1,7 +1,9 @@
+"use client"
+
 import NextLink from "next/link"
 import css from "./Link.module.scss";
 
-export default function Link({ href, children, isExternal }) {
+export default function Link({ href, children, isExternal, onNavigate }) {
 
     const classNames = [css.link];
 
@@ -11,6 +13,6 @@ export default function Link({ href, children, isExternal }) {
         )
     }
 
-    return (<NextLink className={classNames.join(' ')} href={href}>{children}</NextLink>)
+    return (<NextLink className={classNames.join(' ')} href={href} onNavigate={() => onNavigate?.()}>{children}</NextLink>)
 
 }

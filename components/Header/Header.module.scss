@@ -1,7 +1,32 @@
 .header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
     &_bar {
+        position: relative;
         display: flex;
         justify-content: center;
         padding-block: var(--space-xs);
+    }
+
+    &_imprint {
+        opacity: 1;
+    }
+
+    &_nav {
+        position: absolute;
+        right: 0;
+    }
+
+    &[aria-hidden] & {
+        &_imprint {
+            opacity: 0;
+        }
+
+        &_nav {
+            visibility: hidden;
+            opacity: 0;
+        }
     }
 }
