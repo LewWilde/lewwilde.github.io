@@ -67,8 +67,6 @@ export default async function Project({ params }) {
 
     const { title, year, client: clientName, tags, gallery, featuredimage } = post;
 
-    console.log(gallery)
-
     return (
         <Container size={'full'}>
             <div className={css.grid}>

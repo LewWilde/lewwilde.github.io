@@ -7,8 +7,6 @@ import NextLink from "next/link";
 
 export const Card = (props) => {
 
-    console.log(props)
-
     const { title, featuredimage, path, slug } = props;
 
     return (

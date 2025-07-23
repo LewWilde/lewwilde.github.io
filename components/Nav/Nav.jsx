@@ -16,8 +16,6 @@ export const Nav = async () => {
 
     const navData = await client.fetch(NAV_GROQ) ?? {}
 
-    console.log(navData);
-
     return (
         <NavClient items={navData?.items} />
     )
