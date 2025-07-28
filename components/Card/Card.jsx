@@ -4,13 +4,15 @@ import { Breadcrumbs, Crumb } from '@/components/Breadcrumbs/Breadcrumbs'
 import { ArrowFatLinesRight } from "@phosphor-icons/react/dist/ssr";
 import css from './Card.module.scss'
 import NextLink from "next/link";
+import { resolveLink } from '../../utils/resolveLink';
 
 export const Card = (props) => {
 
-    const { title, featuredimage, path, slug } = props;
+    const { title, featuredimage, path, slug, _type } = props;
+    const href = resolveLink({ slug, _type });
 
     return (
-        <NextLink href={slug} className={css.card}>
+        <NextLink href={href} className={css.card}>
             <div className={css['card_image-wrap']} >
                 {featuredimage && <Image className={css.card_image} maxWidth={1100} {...featuredimage} alt={title} />}
             </div>

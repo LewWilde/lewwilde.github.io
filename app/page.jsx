@@ -14,7 +14,7 @@ const GROQ = `*[_type == "home-single"][0]{
                         _type,
                         title,
                         featuredimage,
-                        "slug": '/projects/' + slug.current,
+                        slug
                     }
                 }
                 }`;

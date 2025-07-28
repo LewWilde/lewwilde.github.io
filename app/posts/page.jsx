@@ -21,9 +21,10 @@ export default async function Page({ searchParams }) {
     const pageQROQ = `*[_type == "page" && slug.current == "posts"][0]`
     const postsGROQ = `*[_type == "post"] | order(_id) [${(postsPerPage * (pageNumber - 1))}...${(postsPerPage * (pageNumber - 1)) + postsPerPage}] {
       _id, 
+      _type,
       title, 
       featuredimage,
-      "slug": '/posts/' + slug.current,
+      slug,
     }`
     const postCountGROQ = `count(* [_type == "post"])`;
 
