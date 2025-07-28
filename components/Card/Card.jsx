@@ -12,7 +12,7 @@ export const Card = (props) => {
     return (
         <NextLink href={slug} className={css.card}>
             <div className={css['card_image-wrap']} >
-                <Image className={css.card_image} maxWidth={1100} {...featuredimage} alt={title} />
+                {featuredimage && <Image className={css.card_image} maxWidth={1100} {...featuredimage} alt={title} />}
             </div>
             <div className={css.card_content}>
                 <div className={css['card_content-wrap']}>
