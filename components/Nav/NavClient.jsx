@@ -52,6 +52,7 @@ export const NavClient = ({ navData }) => {
                             <div className={css.grid_footer} >
                                 {navFooter?.items?.map(item =>
                                     <NavLink key={item._key}
+                                        size="small"
                                         href={item.internal ? resolveLink(item.internal) : item.external}
                                         isExternal={!!item.external}
                                         onNavigate={() => { setOpen(false) }}

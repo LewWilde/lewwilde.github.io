@@ -1,26 +1,40 @@
 .link {
-    padding: var(--space-s) var(--space-m);
-    border-bottom: 1px solid var(--color-grey-500);
-    text-decoration: none;
     color: var(--color-grey-1200);
-    font-size: var(--step-4);
-    --hash-color: transparent;
-    --background: transparent;
-    background-image: repeating-radial-gradient(var(--hash-color), var(--hash-color) 1px, var(--background) 1px, var(--background) 100%);
     transition: padding var(--speed);
+    text-decoration: none;
 
-    &:hover,
-    &:focus-visible {
-        color: var(--color-grey-50);
-        --hash-color: var(--color-grey-800);
-        --background: var(--color-grey-1200);
-        background-size: var(--space-xs) var(--space-xs);
-        background-repeat: repeat;
-        padding-left: var(--space-xl);
+    &--size-default {
+        font-size: var(--step-4);
+        --hash-color: transparent;
+        --background: transparent;
+        background-image: repeating-radial-gradient(var(--hash-color), var(--hash-color) 1px, var(--background) 1px, var(--background) 100%);
+        padding: var(--space-s) var(--space-m);
+        border-bottom: 1px solid var(--color-grey-500);
+
+        &:hover,
+        &:focus-visible {
+            color: var(--color-grey-50);
+            --hash-color: var(--color-grey-800);
+            --background: var(--color-grey-1200);
+            background-size: var(--space-xs) var(--space-xs);
+            background-repeat: repeat;
+            padding-left: var(--space-xl);
+        }
     }
 
     &:focus-visible {
         outline: 2px solid var(--color-grey-1200);
-        outline-offset: var(--space-xs);
+        outline-offset: var(--space-2xs);
+    }
+
+    &--size-small {
+        color: var(--color-grey-1200);
+        font-size: var(--step--1);
+        text-transform: uppercase;
+
+        &:hover,
+        &:focus-visible {
+            color: var(--color-grey-800);
+        }
     }
 }
