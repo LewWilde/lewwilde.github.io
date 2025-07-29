@@ -19,7 +19,7 @@ export const FeaturedPosts = ({ heading, text, buttonText, buttonHref, documents
                         </div>}
                 </div>
             </div>
-            {documents?.map(document => <FeaturedCard key={document.slug} path={'projects'} {...document} />)}
+            {documents?.map(document => <FeaturedCard key={document.slug.current} path={'projects'} {...document} />)}
         </section>
 
     )
