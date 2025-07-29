@@ -9,7 +9,11 @@ import { NavLink } from "@/components/Nav/NavLink";
 import { resolveLink } from "../../utils/resolveLink";
 import { Header } from "@/components/Header/Header"
 
-export const NavClient = ({ items }) => {
+export const NavClient = ({ navData }) => {
+
+    const { mainMenu, navFooter } = navData;
+
+    console.log(navData)
 
     const [open, setOpen] = useState(false)
 
@@ -36,7 +40,7 @@ export const NavClient = ({ items }) => {
                             ></div>
                             <div className={css.grid_right}>
                                 <nav className={css.nav}>
-                                    {items.map(item =>
+                                    {mainMenu?.items?.map(item =>
                                         <NavLink key={item._key}
                                             href={item.internal ? resolveLink(item.internal) : item.external}
                                             isExternal={!!item.external}
@@ -46,6 +50,13 @@ export const NavClient = ({ items }) => {
                                 </nav>
                             </div>
                             <div className={css.grid_footer} >
+                                {navFooter?.items?.map(item =>
+                                    <NavLink key={item._key}
+                                        href={item.internal ? resolveLink(item.internal) : item.external}
+                                        isExternal={!!item.external}
+                                        onNavigate={() => { setOpen(false) }}
+                                    >{item.text}</NavLink>
+                                )}
                             </div>
                         </div>
 
