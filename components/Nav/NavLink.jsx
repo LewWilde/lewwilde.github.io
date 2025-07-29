@@ -1,18 +1,12 @@
 "use client"
 
-import NextLink from "next/link"
+import { LinkPrimitive } from "@/components/Link/LinkPrimitive";
 import css from "./NavLink.module.scss";
 
-export const NavLink = ({ href, children, isExternal, onNavigate }) => {
+export const NavLink = ({ children, ...props }) => {
 
     const classNames = [css.link];
 
-    if (isExternal) {
-        return (
-            <a className={classNames.join(' ')} href={href}>{children}</a>
-        )
-    }
-
-    return (<NextLink className={classNames.join(' ')} href={href} onNavigate={() => onNavigate?.()}>{children}</NextLink>)
+    return (<LinkPrimitive className={classNames.join(' ')} {...props}>{children}</LinkPrimitive>)
 
 }
