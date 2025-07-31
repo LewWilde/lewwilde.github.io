@@ -2,9 +2,12 @@ import { Image } from '@/components/Image/Image'
 import { Button } from '@/components/Buttons/Button'
 import { Breadcrumbs, Crumb } from '@/components/Breadcrumbs/Breadcrumbs'
 import { ArrowFatLinesRight } from "@phosphor-icons/react/dist/ssr";
-import css from './Card.module.scss'
+
 import NextLink from "next/link";
 import { resolveLink } from '../../utils/resolveLink';
+import { Heading } from '@/components/Typography/Heading';
+
+import css from './Card.module.scss'
 
 export const Card = (props) => {
 
@@ -21,7 +24,7 @@ export const Card = (props) => {
                     <Breadcrumbs size={'small'}>
                         <Crumb>{path}</Crumb>
                     </Breadcrumbs>
-                    <h3 className={css.card_title}>{title}</h3>
+                    <Heading className={css.card_title} level={3}>{title}</Heading>
                 </div>
 
                 <Button className={css.card_button} variant={"outline"} element={'div'}><ArrowFatLinesRight weight="fill" size={"1em"} /></Button>

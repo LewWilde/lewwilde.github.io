@@ -5,6 +5,7 @@ import { client } from '../sanityclient';
 import { portableTextComponents } from '@/components/PortableText/portableTextComponents';
 import { PortableText } from '@portabletext/react';
 import { FeaturedPosts } from '@/components/FeaturedPosts/FeaturedPosts';
+import { PostsSlider } from '@/components/PostsSlider/PostsSlider';
 
 const GROQ = `*[_type == "home-single"][0]{
                 ...,
@@ -32,7 +33,9 @@ export default async function Home() {
                 <WelcomeTime />
                 <PortableText value={hero_text} components={portableTextComponents} />
             </section>
-            <FeaturedPosts {...projects} buttonHref={'/projects'} />
+            <FeaturedPosts
+                {...projects} buttonHref={'/projects'} />
+            <PostsSlider heading={"Recent Posts"} buttonHref={'/blog'} posts={projects.documents} />
         </Container>
     )
 }

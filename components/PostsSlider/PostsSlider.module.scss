@@ -1,0 +1,43 @@
+.section {
+    padding-block: var(--space-3xl);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-m);
+}
+
+.intro {
+    display: flex;
+    flex: 1;
+    flex-basis: calc(var(--step-0) *15);
+    align-items: center;
+
+    &_wrap {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-xs);
+        width: 100%;
+    }
+
+    &_heading {
+        text-transform: uppercase;
+        margin-block: 0;
+    }
+
+    &_cta {
+        display: flex;
+        gap: 1rem;
+    }
+}
+
+.slider_wrap {
+    min-width: 0;
+    flex: 1 1 75%;
+}
+
+.slide {
+    max-width: calc(var(--container) / 4 - 16px);
+
+    @media (min-width: 100rem) {
+        max-width: calc(33% - 11px);
+    }
+}

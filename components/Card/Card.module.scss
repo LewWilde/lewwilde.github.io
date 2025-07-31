@@ -63,6 +63,8 @@
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
+        text-transform: capitalize;
+        font-size: var(--step-1);
 
         &:after {
             content: ' ';
