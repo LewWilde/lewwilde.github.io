@@ -9,13 +9,15 @@
     display: flex;
     flex: 1;
     flex-basis: calc(var(--step-0) *15);
-    align-items: center;
+    flex-direction: column;
 
     &_wrap {
         display: flex;
         flex-direction: column;
+        justify-content: center;
         gap: var(--space-xs);
         width: 100%;
+        flex: 1;
     }
 
     &_heading {
@@ -27,6 +29,13 @@
         display: flex;
         gap: 1rem;
     }
+}
+
+.controls {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: var(--space-xs);
 }
 
 .slider_wrap {
