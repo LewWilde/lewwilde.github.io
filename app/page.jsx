@@ -7,7 +7,15 @@ import { PortableText } from '@portabletext/react';
 import { FeaturedPosts } from '@/components/FeaturedPosts/FeaturedPosts';
 import { PostsSlider } from '@/components/PostsSlider/PostsSlider';
 
-const GROQ = `*[_type == "home-single"][0]{
+const postsGROQ = `*[_type == "post"] | order(_id) [0...10] {
+      _id, 
+      _type,
+      title, 
+      featuredImage,
+      slug,
+    }`
+
+const pageGROQ = `*[_type == "home-single"][0]{
                 ...,
                 "projects": {
                     ...projects,
@@ -20,12 +28,19 @@ const GROQ = `*[_type == "home-single"][0]{
                 }
                 }`;
 
+const GROQ = `{
+        "page" : ${pageGROQ},
+        "posts" : ${postsGROQ}
+    }`
+
 
 export default async function Home() {
 
-    const post = await client.fetch(GROQ) ?? {}
+    const { page, posts } = await client.fetch(GROQ) ?? {}
 
-    const { hero_text, projects } = post;
+    const { hero_text, projects } = page;
+
+    console.log(posts)
 
     return (
         <Container size={'full'}>
@@ -35,7 +50,7 @@ export default async function Home() {
             </section>
             <FeaturedPosts
                 {...projects} buttonHref={'/projects'} />
-            <PostsSlider heading={"Recent Posts"} buttonHref={'/blog'} posts={projects.documents} />
+            <PostsSlider heading={"Recent Posts"} buttonHref={'/posts'} posts={posts} />
         </Container>
     )
 }

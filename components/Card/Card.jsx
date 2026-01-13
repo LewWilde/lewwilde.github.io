@@ -5,7 +5,7 @@ import { ArrowFatLinesRight } from "@phosphor-icons/react/dist/ssr";
 
 import NextLink from "next/link";
 import { resolveLink } from '../../utils/resolveLink';
-import { Heading } from '@/components/Typography/Heading';
+import { resolvePath } from '../../utils/resolvePath';
 
 import css from './Card.module.scss'
 
@@ -15,6 +15,7 @@ export const Card = (props) => {
 
     const { title, featuredImage, slug, _type } = props;
     const href = resolveLink({ slug, _type });
+    const path = resolvePath({ _type });
 
     return (
         <NextLink href={href} className={css.card}>
@@ -26,7 +27,7 @@ export const Card = (props) => {
                     <Breadcrumbs size={'small'}>
                         <Crumb>{path}</Crumb>
                     </Breadcrumbs>
-                    <Heading className={css.card_title} level={3}>{title}</Heading>
+                    <h3 className={css.card_title}>{title}</h3>
                 </div>
 
                 <Button className={css.card_button} variant={"outline"} element={'div'}><ArrowFatLinesRight weight="fill" size={"1em"} /></Button>

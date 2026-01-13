@@ -52,7 +52,7 @@ export default async function Page({ searchParams }) {
                 </div>
                 {posts?.length > 0 &&
                     <CardsGrid>
-                        {posts.map(post => <Card key={post._id} {...post} path={'projects'} />)}
+                        {posts.map(post => <Card key={post._id} {...post} />)}
                     </CardsGrid>
                 }
 
