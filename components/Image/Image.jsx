@@ -6,8 +6,10 @@ const urlBuilder = ImageUrlBuilder(client)
 
 export const Image = ({ asset, maxWidth = 1100, loading = "lazy", ...otherProps }) => {
 
-    const [, assetId, dimensionString, extension] = asset._ref.split('-')
-    const [srcWidth, srcHeight] = (dimensionString || '').split('x').map(Number)
+    if (!asset) { return }
+
+    const [, assetId, dimensionString, extension] = asset?._ref?.split('-') || []
+    const [srcWidth, srcHeight] = (dimensionString ?? '').split('x').map(Number)
 
     /*sanity CDN base image 
     our max width in main is 22px (max font size) * 50 = 1100px;

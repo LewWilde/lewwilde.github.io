@@ -65,7 +65,7 @@ export default async function Project({ params }) {
 
     const post = await client.fetch(GROQ, { slug }) ?? {}
 
-    const { title, year, client: clientName, tags, gallery, featuredimage } = post;
+    const { title, year, client: clientName, tags, gallery, featuredImage } = post;
 
     return (
         <Container size={'full'}>

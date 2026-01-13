@@ -23,7 +23,7 @@ export default async function Page({ searchParams }) {
       _id, 
       _type,
       title, 
-      featuredimage,
+      featuredImage,
       slug,
     }`
     const postCountGROQ = `count(* [_type == "post"])`;

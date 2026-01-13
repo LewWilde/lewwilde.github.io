@@ -14,7 +14,7 @@ const GROQ = `*[_type == "home-single"][0]{
                     "documents": projects.documents[]->{
                         _type,
                         title,
-                        featuredimage,
+                        featuredImage,
                         slug
                     }
                 }

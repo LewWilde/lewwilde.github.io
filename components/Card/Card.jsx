@@ -11,13 +11,15 @@ import css from './Card.module.scss'
 
 export const Card = (props) => {
 
-    const { title, featuredimage, path, slug, _type } = props;
+    console.log(props)
+
+    const { title, featuredImage, slug, _type } = props;
     const href = resolveLink({ slug, _type });
 
     return (
         <NextLink href={href} className={css.card}>
             <div className={css['card_image-wrap']} >
-                {featuredimage && <Image className={css.card_image} maxWidth={1100} {...featuredimage} alt={title} />}
+                {featuredImage && <Image className={css.card_image} maxWidth={1100} {...featuredImage} alt={title} />}
             </div>
             <div className={css.card_content}>
                 <div className={css['card_content-wrap']}>

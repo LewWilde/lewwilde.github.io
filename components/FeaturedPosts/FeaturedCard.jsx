@@ -6,13 +6,13 @@ import { Button } from "../Buttons/Button";
 import { Breadcrumbs, Crumb } from "../Breadcrumbs/Breadcrumbs";
 import { resolveLink } from "../../utils/resolveLink";
 
-export const FeaturedCard = ({ featuredimage, title, slug, path, _type }) => {
+export const FeaturedCard = ({ featuredImage, title, slug, path, _type }) => {
 
     const href = resolveLink({ _type, slug });
 
     return (<NextLink className={css.card} href={href}>
         <div className={css['card_image-wrap']} >
-            <Image className={css.card_image} maxWidth={1100} {...featuredimage} alt={title} />
+            <Image className={css.card_image} maxWidth={1100} {...featuredImage} alt={title} />
         </div>
         <div className={css.card_content}>
             <div className={css['card_content-wrap']}>
