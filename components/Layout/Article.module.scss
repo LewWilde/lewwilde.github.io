@@ -35,4 +35,17 @@
             margin-bottom: var(--block-space);
         }
     }
+
+    &--position-left {
+        //default
+    }
+
+    &--position-center {
+        margin-left: auto;
+    }
+
+    &--position-right {
+        margin-right: 0;
+        margin-left: auto;
+    }
 }

@@ -1,17 +1,29 @@
 import css from './Article.module.scss'
 
-export const Article = ({ children }) => {
+export const Article = ({ children, position = 'left', className }) => {
 
-    return (<article className={css.article}>
+    const classes = [css.article, css[`article--position-${position}`]];
+
+    if (className) {
+        classes.push(className);
+    }
+
+    return (<article className={classes.join(' ')}>
         {children}
     </article>)
 
 }
 
 
-const Content = ({ children }) => {
+const Content = ({ children, className }) => {
 
-    return (<div className={css.article_content}>
+    const classes = [css.article_content];
+
+    if (className) {
+        classes.push(className);
+    }
+
+    return (<div className={classes.join(' ')}>
         {children}
     </div>)
 
