@@ -40,8 +40,6 @@ export default async function Home() {
 
     const { hero_text, projects } = page;
 
-    console.log(posts)
-
     return (
         <Container size={'full'}>
             <section className={css.hero}>

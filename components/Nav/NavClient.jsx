@@ -13,8 +13,6 @@ export const NavClient = ({ navData }) => {
 
     const { mainMenu, navFooter } = navData;
 
-    console.log(navData)
-
     const [open, setOpen] = useState(false)
 
     return (

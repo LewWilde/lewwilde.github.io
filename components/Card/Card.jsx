@@ -11,8 +11,6 @@ import css from './Card.module.scss'
 
 export const Card = (props) => {
 
-    console.log(props)
-
     const { title, featuredImage, slug, _type } = props;
     const href = resolveLink({ slug, _type });
     const path = resolvePath({ _type });
