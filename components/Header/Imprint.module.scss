@@ -11,13 +11,26 @@
     transition: background var(--speed);
     background: transparent;
     display: block;
+    color: var(--color-grey-1000);
+    --mark-color: currentColor;
 
     &:visited {
-        color: inherit;
+        color: var(--color-grey-1000)
+    }
+
+    &:hover,
+    &:focus-visible {
+        --mark-color: currentColor;
+        --hash-color: var(--color-grey-800);
+        --background: var(--color-grey-1200);
+    }
+
+    &:active {
+        --mark-color: var(--color-yellow-400);
     }
 
     .mark {
-        background: currentColor;
+        background: var(--mark-color);
         width: $mark-size;
         height: $mark-size;
         position: absolute;
