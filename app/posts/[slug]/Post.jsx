@@ -38,7 +38,6 @@ export default async function Post({ params }) {
 
     const { title, body, _updatedAt, _type } = post;
     const path = resolvePath({ _type });
-    console.log(post);
 
     return (
         <Container>

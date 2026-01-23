@@ -15,8 +15,6 @@ export const Footer = () => {
     const gradientLight = ['grey-700', 'grey-600', 'grey-500', 'grey-400', 'grey-300'];
     const gradientAccent = ['yellow-500', 'yellow-400', 'yellow-300', 'yellow-200', 'yellow-100'];
 
-    console.log(gradientDark, gradientLight, gradientAccent)
-
     return (
         <div className={css.footer}>
             <div className={css.hash}></div>
