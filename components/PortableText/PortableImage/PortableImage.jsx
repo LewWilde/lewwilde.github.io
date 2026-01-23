@@ -10,7 +10,7 @@ export const PortableImage = ({ value, isInline }) => {
 
 
     return (
-        <Image className={css.image} {...value} maxWidth={maxWidth} ></Image>
+        <Image className={css.image} {...value} maxWidth={maxWidth} alt={value?.alt} ></Image>
     )
 
 }
