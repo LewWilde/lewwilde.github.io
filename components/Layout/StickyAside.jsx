@@ -9,9 +9,11 @@ export const StickyAside = ({ children }) => {
     const marginRef = useRef();
     const containerRef = useRef();
 
-    let lastScrollTop = typeof document == "undefined" ? 0 : document.body.scrollTop;
+
 
     useEffect(() => {
+
+        let lastScrollTop = typeof document == "undefined" ? 0 : document.body.scrollTop;
         const handleScroll = () => {
             const wrapper = wrapperRef.current;
             const margin = marginRef.current;
