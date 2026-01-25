@@ -4,9 +4,8 @@
     &--full {
         margin-inline: var(--space-m-2xl);
     }
-}
 
-.main {
-    max-width: var(--content);
-    margin-inline: auto;
+    &--content {
+        margin-inline: max(var(--space-s-l), 50% - var(--content)/2);
+    }
 }
