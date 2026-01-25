@@ -1,7 +1,6 @@
 import { Container } from '@/components/Layout/Container';
 import { client } from '../../../sanityclient';
-import { PortableText } from '@portabletext/react';
-import { portableTextComponents } from '@/components/PortableText/portableTextComponents';
+import { PortableText } from '@/components/PortableText/PortableText';
 import { PostMeta } from '@/components/PostMeta/PostMeta';
 import css from './Project.module.scss'
 import { Heading } from '@/components/Typography/Heading';
@@ -79,19 +78,15 @@ export default async function Project({ params }) {
                             </Breadcrumbs>
                             <Heading level={1}>{title}</Heading>
                         </div>
-
-
-                        <Article.Content>
-                            <PostMeta>
-                                {clientName && <PostMeta.Block title={'Client'}>{clientName}</PostMeta.Block>}
-                                {year && <PostMeta.Block title={'Year'}>{year}</PostMeta.Block>}
-                                {tags?.length > 1 && <PostMeta.Block title={'Services'}>
-                                    <div className={css.tags}>{tags.map(({ title }) => <Pill key={title}>{title}</Pill>)
-                                    }</div>
-                                </PostMeta.Block>}
-                            </PostMeta>
-                            <PortableText value={post.body} components={portableTextComponents} />
-                        </Article.Content>
+                        <PostMeta>
+                            {clientName && <PostMeta.Block title={'Client'}>{clientName}</PostMeta.Block>}
+                            {year && <PostMeta.Block title={'Year'}>{year}</PostMeta.Block>}
+                            {tags?.length > 1 && <PostMeta.Block title={'Services'}>
+                                <div className={css.tags}>{tags.map(({ title }) => <Pill key={title}>{title}</Pill>)
+                                }</div>
+                            </PostMeta.Block>}
+                        </PostMeta>
+                        <PortableText content={post.body} />
                     </Article>
                 </StickyAside>
 

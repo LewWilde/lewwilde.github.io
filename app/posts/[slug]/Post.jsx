@@ -1,12 +1,7 @@
 import { client } from '../../../sanityclient';
-
+import { PortableText } from '@/components/PortableText/PortableText';
 import { Container } from '@/components/Layout/Container';
-import { PortableText } from '@portabletext/react';
-import { portableTextComponents } from '@/components/PortableText/portableTextComponents';
-import { Article } from '@/components/Layout/Article';
-import { Heading } from '@/components/Typography/Heading';
-import { Breadcrumbs, Crumb } from '@/components/Breadcrumbs/Breadcrumbs';
-import { resolvePath } from '../../../utils/resolvePath';
+import { PostHero } from '@/components/PostHero/PostHero';
 
 export async function generateStaticParams() {
 
@@ -36,22 +31,16 @@ export default async function Post({ params }) {
 
     const post = await client.fetch(GROQ, { slug }) ?? {}
 
-    const { title, body, _updatedAt, _type } = post;
-    const path = resolvePath({ _type });
+    const { body } = post;
 
     return (
-        <Container>
-            <Article position="center">
-                <Article.Content>
-                    <Breadcrumbs>
-                        <Crumb href={`/${path}`}>{path}</Crumb>
-                    </Breadcrumbs>
-                    <Heading level={1}>{title}</Heading>
-                    <div>{_updatedAt}</div>
-                    <PortableText value={body} components={portableTextComponents} />
-                </Article.Content>
-            </Article>
-        </Container>
+        <article>
+            <PostHero {...post}></PostHero>
+            <Container size='content'>
+                <PortableText content={body} />
+            </Container>
+        </article>
+
     )
 
 }
