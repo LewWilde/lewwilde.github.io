@@ -19,12 +19,12 @@ export default async function Page({ searchParams }) {
     const pageNumber = parseInt((await searchParams)?.page ?? 1);
 
     const pageQROQ = `*[_type == "page" && slug.current == "projects"][0]`
-    const postsGROQ = `*[_type == "project"] | order(_id) [${(postsPerPage * (pageNumber - 1))}...${(postsPerPage * (pageNumber - 1)) + postsPerPage}] {
-      _id,
-      _type, 
-      title, 
-      featuredImage,
-      slug
+    const postsGROQ = `*[_type == "project"] | order(publishedAt desc, _createdAt desc) [${(postsPerPage * (pageNumber - 1))}...${(postsPerPage * (pageNumber - 1)) + postsPerPage}] {
+         _id,
+         _type, 
+        title, 
+        featuredImage,
+        slug
     }`
     const postCountGROQ = `count(* [_type == "project"])`;
 
