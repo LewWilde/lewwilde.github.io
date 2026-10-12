@@ -1,0 +1,122 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: grid;
+    overflow-y: auto;
+    z-index: 999;
+    --overlay-open-bg: #f7f7f5b1;
+    --overlay-closed-bg: #f7f7f500;
+
+    &[data-state="open"] {
+        animation: blur var(--speed) forwards;
+    }
+
+    &[data-state="closed"] {
+        animation: focus var(--speed) ease-in forwards;
+    }
+}
+
+.content {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1;
+    grid-template-rows: auto 1fr;
+    margin-right: var(--removed-body-scroll-bar-size);
+
+    &:after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: var(--removed-body-scroll-bar-size);
+        border-left: 1px solid var(--color-grey-500);
+        background-size: var(--space-s) var(--space-s);
+        background-repeat: repeat;
+        background-image: repeating-linear-gradient(45deg, var(--color-grey-500) 0, var(--color-grey-500) 1px, var(--color-background) 1px, var(--color-background) 50%);
+    }
+}
+
+.grid {
+    display: grid;
+    grid-template-areas:
+        "right"
+        "left"
+        "footer";
+    height: calc(100% - 1px);
+    grid-template-rows: 1fr auto auto;
+
+    @media(min-width: 50rem) {
+        display: grid;
+        grid-template-areas:
+            "left right"
+            "left footer";
+        grid-template-columns: 1fr 1fr;
+    }
+
+    &_left {
+        grid-area: left;
+    }
+
+    &_right {
+        grid-area: right;
+        display: flex;
+        flex-direction: column;
+
+        &::before,
+        &:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: var(--color-grey-500);
+        }
+    }
+
+    &_footer {
+        grid-area: footer;
+        padding: var(--space-m);
+        border-top: 1px solid var(--color-grey-500);
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: var(--space-s);
+        row-gap: var(--space-2xs);
+    }
+}
+
+.nav {
+    flex: 1 0 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@keyframes blur {
+    0% {
+        background-color: var(--overlay-closed-bg);
+        backdrop-filter: blur(0rem);
+    }
+
+    to {
+        background-color: var(--overlay-open-bg);
+        backdrop-filter: blur(0.5rem);
+    }
+}
+
+@keyframes focus {
+    from {
+        background-color: var(--overlay-open-bg);
+        backdrop-filter: blur(0.5rem);
+    }
+
+    to {
+        background-color: var(--overlay-closed-bg);
+        backdrop-filter: blur(0rem);
+    }
+}

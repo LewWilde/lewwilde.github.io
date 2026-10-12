@@ -1,0 +1,13 @@
+.hero {
+  min-height: calc(75vh);
+  flex: 1;
+  max-width: var(--content);
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.main {
+  margin-inline: var(--space-m-2xl);
+}

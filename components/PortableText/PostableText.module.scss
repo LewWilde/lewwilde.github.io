@@ -1,0 +1,23 @@
+    .content {
+        --block-space: var(--space-s);
+
+        >*+ {
+            * {
+                margin-top: var(--block-space)
+            }
+
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                --block-space: 1em;
+            }
+        }
+
+        >div {
+            --block-space: var(--space-xl);
+            margin-bottom: var(--block-space);
+        }
+    }

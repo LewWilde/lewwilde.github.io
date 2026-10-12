@@ -1,0 +1,31 @@
+.grid {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto auto;
+
+    @media(min-width: 70rem) {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-l);
+    }
+}
+
+.tags {
+    margin-top: var(--space-2xs);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+}
+
+.gallery {
+    &_image {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-s);
+}

@@ -1,0 +1,38 @@
+.hero {
+    margin-inline: auto;
+    max-width: var(--container);
+    margin-block-end: var(--space-xl);
+    --content-margin: max(var(--space-s-l), 50% - var(--content)/2);
+
+    &_media {
+        user-select: none;
+        --margin-pull: calc(0px - var(--space-xl));
+        --clip-x: calc(var(--content-margin) - var(--space-s-m));
+        --clip-y: calc(100% + var(--margin-pull) - var(--space-s-m));
+        line-height: 0;
+        margin-bottom: var(--space-s);
+        clip-path: polygon(0 0, 47.5% 0%, 50% var(--space-s), 100% var(--space-s), 100% 100%, 25% 100%, 23.5% calc(100% - var(--space-s)), 0% calc(100% - var(--space-s)));
+
+        @media(min-width: 60rem) {
+            margin-bottom: var(--margin-pull);
+            clip-path: polygon(0 0, 100% 0, 100% var(--clip-y), var(--clip-x) var(--clip-y), var(--clip-x) 100%, 0 100%);
+        }
+    }
+
+    &_image {
+        max-width: var(--content);
+        width: 100%;
+        height: auto;
+    }
+
+    &_content {
+        margin-inline: var(--content-margin);
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-s)
+    }
+
+    &_timestamp {
+        font-size: var(--step--1);
+    }
+}

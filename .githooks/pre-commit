@@ -1,0 +1,6 @@
+#!/bin/sh
+# To enable this hook on a new machine, run:
+# git config core.hooksPath .githooks
+
+npm run lint
+exit $?

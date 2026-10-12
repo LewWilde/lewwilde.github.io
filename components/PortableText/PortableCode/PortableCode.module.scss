@@ -1,0 +1,81 @@
+.code {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: calc(0px - var(--space-s));
+        bottom: calc(0px - var(--space-s));
+        left: calc(0px - var(--space-s));
+        right: calc(0px - var(--space-s));
+        background-size: var(--space-xs) var(--space-xs);
+        background-repeat: repeat;
+        background-image: repeating-linear-gradient(45deg,
+                var(--color-grey-500) 0,
+                var(--color-grey-500) 1px,
+                var(--color-background) 1px,
+                var(--color-background) 50%);
+        clip-path: polygon(0% 0%,
+                calc(100% - var(--space-m)) 0%,
+                100% var(--space-m),
+                100% 100%,
+                var(--space-m) 100%,
+                0% calc(100% - var(--space-m)));
+    }
+
+    &_wrap {
+        background: var(--color-grey-1200);
+        position: relative;
+        clip-path: polygon(0% 0%,
+                calc(100% - var(--space-s)) 0%,
+                100% var(--space-s),
+                100% 100%,
+                var(--space-s) 100%,
+                0% calc(100% - var(--space-s)));
+
+        *::selection {
+            background: var(--color-grey-1000);
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 50%;
+            background-size: 2rem 2rem;
+            background-repeat: repeat;
+            $bg-color: var(--color-grey-900);
+            background-image: repeating-radial-gradient($bg-color,
+                    $bg-color 1px,
+                    transparent 1px, transparent 100%,
+                );
+        }
+
+        >* {
+            position: relative;
+        }
+    }
+
+    &_meta {
+        display: flex;
+        flex-wrap: nowrap;
+        padding: 1em 1em 0;
+        align-items: center;
+    }
+
+    &_language {
+        margin-left: auto;
+    }
+
+    &_file {
+        color: var(--color-grey-50);
+        text-overflow: ellipsis;
+        text-decoration: underline;
+        text-decoration-thickness: 0.15em;
+        text-decoration-color: var(--color-yellow-500);
+    }
+}
